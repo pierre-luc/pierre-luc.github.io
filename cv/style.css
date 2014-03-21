@@ -1,0 +1,454 @@
+/* blue = #00A9BC */
+
+/* orange = #FFA600 */
+/* green = #A4C403 */
+/* red = #D94B32 */
+
+body {
+	background-color: #000;
+	width: 793.700787402px;
+	height: 1118.519685039px;
+}
+
+@font-face {
+  font-family: "Segoe UI Light";
+  src: url(./SEGOEUIL.ttf) format("truetype");
+}
+
+#page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 803.700787402px;
+	height: 1134.519685039px;
+	margin-bottom: 200px;
+	background-color: #fff;
+	overflow: hidden;
+	background-image: url(./img/az_subtle.png);
+	font-family: 'Segoe UI Light';
+}
+
+
+.http {
+	position: relative;
+	font-size: 10px;
+	color: #000;
+}
+	
+	#link .http:first-child {
+		padding-left: 9px;
+	}
+
+	#link .http:first-child:after {
+		position: absolute;
+		top: 0px;
+		left: -2px;
+		content: '';
+		font-size: 10px;
+		color: #00A9BC;
+		opacity: 0.7;
+	}
+
+#header {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	
+	height: 100px;
+	width: 100%;
+}
+
+	#header #dev {
+		font-weight: bold;
+		font-size: 40px;
+		color: #6e8402;
+		margin-left: 40px;
+		text-shadow: 1px 1px 0 #A4C403;
+	}
+	#header #caption {
+		position: relative;
+		color: #333;
+		font-style: italic;
+		font-size: 15px;
+		margin-left: 100px;
+	}
+	#header #name {
+		position: absolute;
+		left: 380px;
+		top: 14px;
+		font-size: 25px;
+		font-weight: bold;
+		text-shadow: 1px 1px 0 #A4C403;
+		color: #374108;
+		color: #434e10;
+
+	}
+
+	#header #draw {
+		position: absolute;
+		top: -10px;
+		right: 0;
+		width: 228px;
+		height: 100px;
+		background-image: url( ./img/draw.png );
+	}
+
+	#icons {
+		position: relative;
+		height: 44px;
+		padding-top: 20px;
+		padding-bottom: 21px;
+	}
+
+	#icons .icon {
+		background-repeat: no-repeat no-repeat;	
+		width: 34px;
+		height: 34px;
+		margin-right: 7px;
+		float: left;
+	}
+		#icons #html5 {
+			margin-top: 2px;
+			background-image: url( ./img/html5_logo.png );
+			zoom: 0.93;
+		}
+		#icons #css3 {
+			background-image: url( ./img/css3_logo.png );
+		}
+
+		#icons #js {
+			background-image: url( ./img/js_logo.png );
+		}
+	
+		#icons #php {
+			background-image: url( ./img/php_logo.png );
+			background-position: 0 -7px;
+			zoom: 1.1;
+		}
+
+		#icons #jquery {
+			background-image: url( ./img/jquery_logo.png );
+		}
+
+		#icons #nodejs {
+			background-image: url( ./img/nodejs.png );
+		}
+#container {
+	position: absolute;
+	top: 100px;
+	/*background-color: rgba(187,187,187,0.1);*/
+	overflow: hidden;
+	height: 972px;
+	width: 100%;
+	z-index: 5;
+}
+
+	#col-right {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 240px;
+		
+	}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(50,50,50, 0.4);
+	height: 63px;
+	width: 100%;
+}
+
+.rubrique > #title {
+	
+	position: relative;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	background-color: rgba(170,170,170,0.2);
+	color: #ca2102;
+	z-index: 2;
+}
+
+
+	.rubrique[id=contacts] #content {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.rubrique[id=contacts] #phone {
+		background-image: url( ./img/icon-phone.png );
+		padding-left: 20px;
+
+	}
+		
+
+	.rubrique[id=contacts] #mail {
+		background-image: url( ./img/icon-email.png );
+		padding-left: 20px;
+		background-position: 0 3px;
+	}
+
+	.rubrique[id=contacts] #street {
+		background-image: url( ./img/icon-address.png );
+		padding-left: 20px;
+		background-position: 0 -1px;
+	}
+
+	.rubrique[id=contacts] #web {
+		background-image: url( ./img/icon-web.png );
+		padding-left: 20px;
+
+	}
+
+	.rubrique[id=contacts] .coord {
+		font-size: 13px;
+		background-repeat: no-repeat no-repeat;
+		letter-spacing: 1px;
+		color: #6e8402;
+		color: #7a9202;
+		font-weight: bold;
+		/*text-shadow: 1px 1px 0 #A4C403;
+		font-weight: bold;*/
+	}
+		.rubrique[id=contacts] .coord p {
+			position: relative;
+			top: -2px;
+		}
+
+	.rubrique[id=competences] {
+		position: relative;
+		width: 240px;
+		color: #111;
+	}
+
+		.rubrique[id=competences] > #content {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+	.rubrique[id=exp] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 240px;
+		bottom: 0;
+	}
+
+	.rubrique[id=contacts] > #title, .rubrique[id=competences] > #title, .rubrique[id=langages] > #title, .rubrique[id=divers] > #title {
+		background-color: rgba(170,170,170,0.1);
+	}
+
+		.rubrique[id=divers] {
+			margin-top: 16px;
+		}
+
+		.rubrique[id=divers] #content {
+			height: 310px;
+		}
+
+	.rubrique[id=formations] {
+		position: absolute;
+		top: 780px;
+		left: 0;
+		right: 240px;
+		bottom: 0;
+	}
+		.rubrique[id=formations] .group {
+			margin-left: 0;
+		}
+		.rubrique[id=formations] .group > .item {
+			margin-top: 35px;
+		}
+
+		.group {
+			margin-left: 20px;
+			margin-top: 10px;
+			margin-right: 20px;
+		}
+
+			.group #year {
+				background-color: #A4C403;
+				display: inline-block;
+				padding: 4px;
+				font-size: 0.9em;
+				font-weight: bold;
+				border-radius: 3px;
+				background-image: -webkit-linear-gradient(top,#A4C403 0%,#8eaa02 100%);
+				box-shadow: 0 0 1px #A4C403 inset;
+				border-color: #304ea6 #304ea6 #065680;
+				color: #fff;
+
+			}
+			.group .item {
+				margin-left: 20px;
+				margin-top: 25px;
+				margin-bottom: 25px;
+
+			}	
+				.group .item:first-child {
+				}
+				
+				.group .item > #title {
+					font-weight: bold;
+					font-size: 15px;
+					color: #e43415;
+					color: #6e8402;
+					color: #7a9202;
+					text-shadow: 1px 1px 0 #A4C403;
+				}
+
+				.group .item > #created {
+					font-size: 12px;
+					padding-right: 3px;
+					margin-left: 20px;
+					border-right: solid 1px #aaa;
+					color: #00A9BC;
+					color: #6e8402;
+
+				}
+
+				.group .item > #text {
+					margin-left: 20px;
+					font-size: 14px;
+					text-align: justify;
+					border-bottom: solid 1px #bbb;
+					padding-bottom: 3px;
+					margin-bottom: 2px;
+					color: #333;
+
+				}
+
+				.group .item > #link {
+					font-size: 13px;
+					padding-right: 3px;
+					border-right: solid 1px #aaa;
+					color: #00A9BC;
+				}
+
+				.group .item > #tech {
+					font-size: 12px;
+					font-style: italic;
+					color: #444;
+					color: #e43415;
+					color: #ca2102;
+				}
+					.group .item > #tech .target {
+						/*
+						background-color: rgba(200,200,200, 0.2);
+						padding: 0 3px;
+						border-radius: 3px;
+						border: solid 1px rgba(200,200,200, 0.5);
+						*/
+					}
+				
+
+				#formations #title {
+					padding-left: 10px;
+				}
+
+				#formations #created {
+					margin-left: 5px;
+					border: none;
+				}
+
+.rubrique #content {
+	z-index: 1;
+	position: relative;
+	background-color: rgba(250,250,250,0.1);
+	padding-left: 20px;
+}
+	#content > .category {
+		position: relative;
+		padding-top: 5px;
+		padding-bottom: 10px;
+	}
+		#content > .category > #title {
+			position: relative;
+			color: #000;
+			font-size: 0.9em;
+			letter-spacing: 1px;
+			height: 13px;
+			color: #6e8402;
+			text-shadow: 1px 1px 0 #A4C403;
+			margin-bottom: 3px;
+		}
+			#content > .category > #title:first-letter {
+				text-transform: uppercase;
+			}
+
+	.competence {
+		position: relative;
+		margin-left: 10px;
+		height: 15px;
+	}
+		.competence > div {
+			display: inline-block;
+		}
+
+			.competence #title {
+				position: relative;
+				color: #444;
+				margin-right: 5px;
+				font-size: 0.9em;
+
+			}
+			.competence #level {
+				position: relative;
+				color: #777;
+				margin-right: 5px;
+				font-style: italic;
+				font-size: 0.7em;
+			}
+
+			.competence .rating {
+				position: relative;
+			}
+
+			.rating {
+				position: relative;
+				height: 10px;
+				width: 50px;
+			}
+				.rating div[class^=star] {
+					position: relative;
+					background-repeat: no-repeat no-repeat;
+					background-image: url(./img/rating.png);
+					
+					width: 10px;
+					height: 10px;
+					float: left;
+					background-position: -10px 0px;
+					}
+				.rating .star-bg {
+					background-position: -20px 0px !important;
+				} 
+
+
+#footer #qrcode {
+	position: absolute;
+	right: 0;
+}
+	#footer #caption {
+		position: absolute;
+		left: 90px;
+		top: 20px;
+		font-size: 13px;color: #4a5900;
+		font-weight: bold;
+		right: 0;
+
+	}
+
+		#footer .text {
+			padding-right: 10px;
+			padding-left: 5px;
+			border-right: solid 1px #6e8402;
+		}
+			#footer .text:last-child {
+				border: none;
+			};
