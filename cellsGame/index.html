@@ -8,6 +8,10 @@
 		<!-- Load assets -->
 		<script src="js/assets/properties.js"></script>
 		<script src="js/assets/cell.js"></script>
+
+		<link rel="stylesheet" href="ui/main.css">
+		<script src="ui/main.js"></script>
+
 		<style>
 			body {
 				color: white;
@@ -17,7 +21,7 @@
 			button {
 				width: 120px;
 			}
-			#content {
+			#cellEnv {
 				display: inline-block;
 			}
 			.bloc {
@@ -33,9 +37,29 @@
 	</head>
 	<body>
 		<button id="paused">paused</button>
-		<div id="content">
-			<div id="cycle">N°cycle : 0</div>
+
+		<div id="game">
+			<div id="content">
+				<div id="cellEnv"></div>
+			</div>
 		</div>
+
+		<div id="options"></div>
+		<div id="cellBG"></div>
+		<div id="cell">
+			<div id="adn" class="property" caption="ADN" value="100"></div>
+			<div id="life" class="property" caption="PV" value="100"></div>
+			<div id="energy" class="property" caption="PE" value="100"></div>
+		</div>
+		<div id="state">
+			<div id="background"></div>
+			<div id="cycle" class="label">Cycle n° 123</div>
+			<div id="demography" class="label">Démographie : 213</div>
+		</div>
+		
+
+
+
 		<script>
 			function bar(max, value, maxChars) {
 				var e='';
@@ -54,14 +78,14 @@
 				}
 				return '[' + e + ']' + ' ' + value + "/" + max;
 			}
-
+			
 			var nbCells = 0;
 			function createCell( n, c ) {
 				if ( nbCells >= 100 ) {
 					return;
 				}
 				nbCells++;
-				$('#content').append(
+				$('#cellEnv').append(
 					'<div class="bloc" id="cellProperies_' + n + '">'
 				  +    '<div id="uniqid"></div>'
 				  +    '<div id="age"></div>'
@@ -161,14 +185,46 @@
 
 			
 			var cycleChanged = function(e){
-				$('#cycle').html( 'N°cycle : ' + cellsGame.engine.cycle 
-								+ ' Démographie : ' + cellsGame.engine.nbCell );
+				$('#cycle').html( 'N°cycle : ' + cellsGame.engine.cycle );
+				$('#demography').html( 'Démographie : ' + cellsGame.engine.nbCell );
 			};
 			cellsGame.addHandler( 'newCycle', cycleChanged );
 			cycleChanged();
 
-			var c = createCell(0);
+			//var c = createCell(0);
 
+			var c = new Cell({
+				properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
+			});
+
+			var energyChanged = function(e){
+				var max = c.getMaxEnergy(),
+				    n   = c.getEnergy(),
+				    value = parseInt( n * 100 / max );
+
+				$('#cell #energy').updateValue( value );
+			}
+			c.addHandler( 'energyChanged', energyChanged );
+			c.addHandler( 'regenEnergyChanged', energyChanged );
+			energyChanged();
+				
+			var lifeChanged = function(e){
+				var max = c.getMaxLife(),
+				    n   = c.getLife(),
+				    value = parseInt( n * 100 / max );
+
+				$('#cell #life').updateValue( value );
+			}
+			c.addHandler( 'lifeChanged', lifeChanged );
+			c.addHandler( 'regenlifeChanged', lifeChanged );
+			lifeChanged();
+	
+			var divised = function( e, data ) {
+				createCell( data.cell.getUniqid(), data.cell );
+				cycleChanged();
+			};
+			c.addHandler( 'divised', divised );
+			c.division();
 
 			$('#paused').click(function(){
 				cellsGame.engine.paused = !cellsGame.engine.paused;
