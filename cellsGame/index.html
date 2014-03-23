@@ -39,6 +39,11 @@
 		<button id="paused">paused</button>
 
 		<div id="game">
+		<div id="settings" class="modal" data-style="center">
+				<div id="closeButton" class="button medium"><span class="icon-close"></span></div>
+				<div id="title">Paramètres</div>
+				<div id="body"></div>
+			</div>
 			<div id="content">
 				<div id="start">Cliquez ici pour commencer</div>
 				<div id="cellEnv"></div>
@@ -48,12 +53,13 @@
 		<div id="options"></div>
 		<div id="cellBG"></div>
 		<div id="cell">
-			<div id="adn" class="property" caption="ADN" value="100" max-value="100"></div>
-			<div id="life" class="property" caption="PV" value="100" max-value="100" regen="5"></div>
-			<div id="energy" class="property" caption="PE" value="100" max-value="100" regen="2"></div>
+			<div id="adn" class="property" caption="adn" value="10" max-value="100"></div>
+			<div id="life" class="property" caption="<span class='icon-heart'></span>" value="55" max-value="100" regen="2"></div>
+			<div id="energy" class="property" caption="<span class='icon-bolt'></span>" value="90" max-value="100" regen="1"></div>
 		</div>
 		<div id="state">
 			<div id="background"></div>
+			<div id="settingsButton" class="button medium" modal="settings"><span class="icon-cog"></span></div>
 			<div id="cycle" class="label">Cycle n° 123</div>
 			<div id="demography" class="label">Démographie : 213</div>
 		</div>

@@ -30,6 +30,16 @@ lors de chaque appel de méthode sur les éléments de l'ui. */
 			 $( this ).trigger( 'valueChanged' );
 		}		
 	};
+
+	$.fn.center = function() {
+		var w = $( window ).width(),
+			h = $( window ).height();
+
+		$( this ).css({
+			top : h / 2 - $( this ).height() / 2,
+			left : w / 2 - $( this ).width() / 2
+		});
+	};
 })( jQuery )
 
 
@@ -83,9 +93,44 @@ $( document ).ready( function(){
 		}
 	} );
 	
+	/**
+	 * Initialisation modals
+	 */
+	$( '.modal' ).each( function(){
+		var self = $( this );
+
+		var html = $( this ).html();
+		$( this ).html( 
+				'<div id="closeButton" class="button medium"><span class="icon-close"></span></div>'
+				+ '<div id="title">' + $( this ).attr( 'title' ) + '</div>' + html);
+
+		$( this ).find( '#closeButton' ).click( function() {
+			self.hide();
+		});
+	} );
+
+	$( '.button' ).each( function(){
+		var modal = $( this ).attr( 'modal' );
+		if ( modal ) {
+			$( this ).click( function() {
+				$( '#' + modal ).show();
+			} );
+		}
+	} );
+
+	/**
+	 * Resizing
+	 */
+
 	var resized = function(){
 		$( '#game #start' ).css( {
 			top : ( $( '#game' ).height() / 2 - $( '#game #start' ).height() / 2 ) + 'px'
+		} );
+
+		$( '.modal' ).each( function(){
+			if ( $( this ).attr( 'data-style' ) == 'center' ){
+				$( this ).center();
+			}
 		} );
 	}
 

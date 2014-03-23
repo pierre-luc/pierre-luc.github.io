@@ -10,6 +10,14 @@
 
 	*/
 @import url(http://fonts.googleapis.com/css?family=Cabin+Sketch);
+@import url(./icons.css);
+
+@font-face {
+  font-family: 'Cabin Sketch';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cabin Sketch Regular'), local('CabinSketch-Regular'), url(./fonts/CabinSketch.woff) format('woff');
+}
 
  body {
  	background-color: #222;
@@ -27,6 +35,122 @@
 		        transition: all 0.5s ease;
 	}
 	
+
+/*------------------------*/
+/* ui global components
+/*------------------------*/
+	.button {
+		text-align: center;
+		border: solid 1px transparent;
+		cursor: pointer;
+
+		padding-top: 1px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border-radius: 3px;
+
+		-webkit-transition: none;
+		   -moz-transition: none;
+		    -ms-transition: none;
+		     -o-transition: none;
+		        transition: none;
+	}
+		.button:hover {
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjM5Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjI0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjczJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjM5Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zOSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+			background: -moz-linear-gradient(top,  rgba(255,255,255,0.39) 0%, rgba(255,255,255,0) 24%, rgba(255,255,255,0) 73%, rgba(255,255,255,0.39) 99%, rgba(255,255,255,0.39) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.39)), color-stop(24%,rgba(255,255,255,0)), color-stop(73%,rgba(255,255,255,0)), color-stop(99%,rgba(255,255,255,0.39)), color-stop(100%,rgba(255,255,255,0.39))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  rgba(255,255,255,0.39) 0%,rgba(255,255,255,0) 24%,rgba(255,255,255,0) 73%,rgba(255,255,255,0.39) 99%,rgba(255,255,255,0.39) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  rgba(255,255,255,0.39) 0%,rgba(255,255,255,0) 24%,rgba(255,255,255,0) 73%,rgba(255,255,255,0.39) 99%,rgba(255,255,255,0.39) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  rgba(255,255,255,0.39) 0%,rgba(255,255,255,0) 24%,rgba(255,255,255,0) 73%,rgba(255,255,255,0.39) 99%,rgba(255,255,255,0.39) 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  rgba(255,255,255,0.39) 0%,rgba(255,255,255,0) 24%,rgba(255,255,255,0) 73%,rgba(255,255,255,0.39) 99%,rgba(255,255,255,0.39) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63ffffff', endColorstr='#63ffffff',GradientType=0 ); /* IE6-8 */
+		}
+
+		.button:active {
+			padding-top: 2px;
+			border: solid 1px transparent;
+			-moz-box-shadow: inset 0px 0px 7px 0px #111;
+			-webkit-box-shadow: inset 0px 0px 7px 0px #111;
+			-o-box-shadow: inset 0px 0px 7px 0px #111;
+			box-shadow: inset 0px 0px 7px 0px #111;
+			background: none;
+		}
+
+		.button.medium {
+			height: 26px;
+			font-size: 20px;
+			text-shadow: 1px 1px 2px #000;
+		}
+
+
+	.modal {
+		z-index: 9999;
+		position: fixed;
+		width: 600px;
+		height: 500px;
+		overflow: hidden;
+		border-radius: 4px;
+		border: solid 1px #777;
+		-moz-box-shadow: 0px 0px 10px 1px #222;
+		-webkit-box-shadow: 0px 0px 10px 1px #222;
+		-o-box-shadow: 0px 0px 10px 1px #222;
+		box-shadow: 0px 0px 10px 1px #222;
+		opacity: 0.98;
+		display: none;
+	}
+		.modal > #title {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 20px;
+			font-size: 20px;
+			background-image: url(./img/wood.jpg);
+			padding: 5px;
+			text-shadow: 1px 1px 2px #000;
+			border-bottom: solid 1px #444;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+			.modal > #closeButton {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+				width: 30px;
+				padding-top: 5px;
+				height: 22px;
+				font-size: 15px;
+			}
+				.modal > #closeButton:active {
+					padding-top: 6px;
+				}
+
+		.modal > #body {
+			border-top: solid 1px #aaa;
+			position: absolute;
+			top: 31px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url(./img/grey_wash_wall.png);
+			overflow: overlay;
+		}
+
+
+/*------------------------*/
+/* ui game components
+/*------------------------*/
+
  	#options {
  		position: fixed;
  		left: -250px;
@@ -86,6 +210,11 @@
 			bottom: 0;
 			right: 0;
 			background: url(./img/wood.jpg);
+ 		}
+
+ 		#state #settingsButton {
+ 			float: left;
+ 			padding: 5px;
  		}
 
  		.label {
@@ -163,13 +292,13 @@
 					left: 14px;
 				}
 					#cell #adn #levelQty {
-						width: 163px;
+						width: 183px;
 					}
 					#cell #life #levelQty {
-						width: 155px;
+						width: 165px;
 					}
 					#cell #energy #levelQty {
-						width: 153px;
+						width: 163px;
 					}
 
 
@@ -183,7 +312,7 @@
  						position: relative;
  						margin-top: 8px;
  						height: 10px;
-						margin-left: 15px;
+						margin-left: 7px;
 						background: #5C6054;
 						-moz-box-shadow: inset 0px 0px 7px 0px #111;
 						-webkit-box-shadow: inset 0px 0px 7px 0px #111;
@@ -194,9 +323,10 @@
  					}
  						#cell .property #regen {
 							position: absolute;
-							top: 5px;
+							top: 8px;
 							right: -4px;
 							font-size: 10px;
+							font-weight: bold;
  						}
 
 						#cell .property #levelQty #currency {
