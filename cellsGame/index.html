@@ -16,13 +16,13 @@
 			body {
 				color: white;
 				background-color: black;
-				font-family: monospace;
 			}
 			button {
 				width: 120px;
 			}
 			#cellEnv {
 				display: inline-block;
+				font-family: ubuntu mono;
 			}
 			.bloc {
 				display: inline-block;
@@ -47,9 +47,9 @@
 		<div id="options"></div>
 		<div id="cellBG"></div>
 		<div id="cell">
-			<div id="adn" class="property" caption="ADN" value="100"></div>
-			<div id="life" class="property" caption="PV" value="100"></div>
-			<div id="energy" class="property" caption="PE" value="100"></div>
+			<div id="adn" class="property" caption="ADN" value="100" max-value="100"></div>
+			<div id="life" class="property" caption="PV" value="100" max-value="100" regen="5"></div>
+			<div id="energy" class="property" caption="PE" value="100" max-value="100" regen="2"></div>
 		</div>
 		<div id="state">
 			<div id="background"></div>
@@ -199,10 +199,12 @@
 
 			var energyChanged = function(e){
 				var max = c.getMaxEnergy(),
-				    n   = c.getEnergy(),
-				    value = parseInt( n * 100 / max );
+				    value   = c.getEnergy(),
+				    regen = c.getRegenEnergy();
 
+				$('#cell #energy').updateMaxValue( max );
 				$('#cell #energy').updateValue( value );
+				$('#cell #energy').updateRegen( regen );
 			}
 			c.addHandler( 'energyChanged', energyChanged );
 			c.addHandler( 'regenEnergyChanged', energyChanged );
@@ -210,13 +212,15 @@
 				
 			var lifeChanged = function(e){
 				var max = c.getMaxLife(),
-				    n   = c.getLife(),
-				    value = parseInt( n * 100 / max );
+				    value   = c.getLife(),
+				    regen = c.getRegenLife();
 
+				$('#cell #life').updateMaxValue( max );
 				$('#cell #life').updateValue( value );
+				$('#cell #life').updateRegen( regen );
 			}
 			c.addHandler( 'lifeChanged', lifeChanged );
-			c.addHandler( 'regenlifeChanged', lifeChanged );
+			c.addHandler( 'regenLifeChanged', lifeChanged );
 			lifeChanged();
 	
 			var divised = function( e, data ) {
