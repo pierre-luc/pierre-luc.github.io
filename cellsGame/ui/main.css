@@ -1,15 +1,20 @@
 /**
  *	main.css
  */
-
+/*
+ 	font-family: monospace;
 @import url(http://fonts.googleapis.com/css?family=Sofadi+One);
+	font-family: 'Sofadi One', cursive;
+@import url(http://fonts.googleapis.com/css?family=Iceland);
+ 	font-family: 'Iceland', cursive;
 
+	*/
+@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch);
 
  body {
  	background-color: #222;
  	color: white;
- 	font-family: monospace;
-	font-family: 'Sofadi One', cursive;
+ 	font-family: 'Cabin Sketch', cursive;
  	background-image: url(./img/grey_wash_wall.png);
 
  }
@@ -86,8 +91,8 @@
  		.label {
  			float: left;
  			font-size: 20px;
- 			color: #333;
- 			text-shadow: 1px 1px 0 #eee;
+ 			color: #eee;
+ 			text-shadow: 1px 1px 0 #333;
  			padding: 3px;
  			padding-left: 10px;
  			padding-right: 10px;
@@ -98,11 +103,11 @@
  			border: solid 1px #bbb;
  			border-top-color: #888;
  			border-left-color: #888;
- 			-moz-box-shadow: inset 0px 0px 7px 0px #222;
-			-webkit-box-shadow: inset 0px 0px 7px 0px #222;
-			-o-box-shadow: inset 0px 0px 7px 0px #222;
-			box-shadow: inset 0px 0px 7px 0px #222;
-			background-image: url(./img/wood.jpg);
+ 			-moz-box-shadow: inset 0px 0px 7px 0px #111;
+			-webkit-box-shadow: inset 0px 0px 7px 0px #111;
+			-o-box-shadow: inset 0px 0px 7px 0px #111;
+			box-shadow: inset 0px 0px 7px 0px #111;
+			background-image: url(./img/grey_wash_wall.png);
 			width: 200px;
  		}
 		
