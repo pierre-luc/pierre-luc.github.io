@@ -40,7 +40,7 @@
 
 		<div id="game">
 			<div id="content">
-				<div id="start">Cliquez pour commencer</div>
+				<div id="start">Cliquez ici pour commencer</div>
 				<div id="cellEnv"></div>
 			</div>
 		</div>
@@ -193,6 +193,7 @@
 			cycleChanged();
 
 			//var c = createCell(0);
+			var cell;
 			var startGame = function() {
 				var c = new Cell({
 					properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
@@ -232,10 +233,12 @@
 				c.division();
 				$( '#paused' ).show();
 				cellsGame.engine.paused = false;
+
+				cell = c;
 			}
 			$( '#paused' ).hide();
 			$ ( document ).on( 'startGame', startGame );
-
+			
 			cellsGame.engine.paused = true;
 			$('#paused').click(function(){
 				cellsGame.engine.paused = !cellsGame.engine.paused;

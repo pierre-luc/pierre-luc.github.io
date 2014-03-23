@@ -64,7 +64,7 @@ $( document ).ready( function(){
 			var value = parseInt( $( this ).attr( 'value' ) ),
 			    maxValue = parseInt( $( this ).attr( 'max-value' ) );
 			$( this ).find( '#value' ).css( 'width', ( value * 100 / maxValue ) + '%' );
-			$( this ).find( '#value' ).attr( 'level', levelColoration( value ) );
+			$( this ).find( '#value' ).attr( 'level', levelColoration( value * 100 / maxValue ) );
 			$( this ).find( '#currency' ).html( value + ' / ' + maxValue );
 		});
 		// initialisation de value
@@ -83,9 +83,14 @@ $( document ).ready( function(){
 		}
 	} );
 	
-	$( '#game #start' ).css( {
-		top : ( $( '#game' ).height() / 2 - $( '#game #start' ).height() / 2 ) + 'px'
-	} );
+	var resized = function(){
+		$( '#game #start' ).css( {
+			top : ( $( '#game' ).height() / 2 - $( '#game #start' ).height() / 2 ) + 'px'
+		} );
+	}
+
+	resized();
+	$( window ).resize( resized );
 
 	$( '#game #start' ).click( function(){
 		$( '#game' ).attr( 'started' , '' );
