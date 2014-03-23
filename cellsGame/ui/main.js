@@ -82,4 +82,13 @@ $( document ).ready( function(){
 			$( this ).updateRegen( regen );
 		}
 	} );
+	
+	$( '#game #start' ).css( {
+		top : ( $( '#game' ).height() / 2 - $( '#game #start' ).height() / 2 ) + 'px'
+	} );
+
+	$( '#game #start' ).click( function(){
+		$( '#game' ).attr( 'started' , '' );
+		$( document ).trigger( 'startGame' );
+	} );
 } );

@@ -40,6 +40,7 @@
 
 		<div id="game">
 			<div id="content">
+				<div id="start">Cliquez pour commencer</div>
 				<div id="cellEnv"></div>
 			</div>
 		</div>
@@ -192,44 +193,50 @@
 			cycleChanged();
 
 			//var c = createCell(0);
+			var startGame = function() {
+				var c = new Cell({
+					properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
+				});
 
-			var c = new Cell({
-				properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
-			});
+				var energyChanged = function(e){
+					var max = c.getMaxEnergy(),
+					    value   = c.getEnergy(),
+					    regen = c.getRegenEnergy();
 
-			var energyChanged = function(e){
-				var max = c.getMaxEnergy(),
-				    value   = c.getEnergy(),
-				    regen = c.getRegenEnergy();
+					$('#cell #energy').updateMaxValue( max );
+					$('#cell #energy').updateValue( value );
+					$('#cell #energy').updateRegen( regen );
+				}
+				c.addHandler( 'energyChanged', energyChanged );
+				c.addHandler( 'regenEnergyChanged', energyChanged );
+				energyChanged();
+					
+				var lifeChanged = function(e){
+					var max = c.getMaxLife(),
+					    value   = c.getLife(),
+					    regen = c.getRegenLife();
 
-				$('#cell #energy').updateMaxValue( max );
-				$('#cell #energy').updateValue( value );
-				$('#cell #energy').updateRegen( regen );
+					$('#cell #life').updateMaxValue( max );
+					$('#cell #life').updateValue( value );
+					$('#cell #life').updateRegen( regen );
+				}
+				c.addHandler( 'lifeChanged', lifeChanged );
+				c.addHandler( 'regenLifeChanged', lifeChanged );
+				lifeChanged();
+		
+				var divised = function( e, data ) {
+					createCell( data.cell.getUniqid(), data.cell );
+					cycleChanged();
+				};
+				c.addHandler( 'divised', divised );
+				c.division();
+				$( '#paused' ).show();
+				cellsGame.engine.paused = false;
 			}
-			c.addHandler( 'energyChanged', energyChanged );
-			c.addHandler( 'regenEnergyChanged', energyChanged );
-			energyChanged();
-				
-			var lifeChanged = function(e){
-				var max = c.getMaxLife(),
-				    value   = c.getLife(),
-				    regen = c.getRegenLife();
+			$( '#paused' ).hide();
+			$ ( document ).on( 'startGame', startGame );
 
-				$('#cell #life').updateMaxValue( max );
-				$('#cell #life').updateValue( value );
-				$('#cell #life').updateRegen( regen );
-			}
-			c.addHandler( 'lifeChanged', lifeChanged );
-			c.addHandler( 'regenLifeChanged', lifeChanged );
-			lifeChanged();
-	
-			var divised = function( e, data ) {
-				createCell( data.cell.getUniqid(), data.cell );
-				cycleChanged();
-			};
-			c.addHandler( 'divised', divised );
-			c.division();
-
+			cellsGame.engine.paused = true;
 			$('#paused').click(function(){
 				cellsGame.engine.paused = !cellsGame.engine.paused;
 			});

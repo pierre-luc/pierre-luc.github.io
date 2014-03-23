@@ -251,3 +251,17 @@
 			bottom: 0;
 			overflow: overlay;
 		}
+
+			#start {
+				z-index: 4;
+				position: absolute;
+				left: 0;
+				right: 0;
+				text-align: center;
+				font-size: 50px;
+				cursor: pointer;
+			}
+				#game[started] #start {
+					z-index: -1;
+					opacity: 0;
+				}
