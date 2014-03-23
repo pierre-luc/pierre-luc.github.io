@@ -102,7 +102,7 @@ $( document ).ready( function(){
 		var html = $( this ).html();
 		$( this ).html( 
 				'<div id="closeButton" class="button medium"><span class="icon-close"></span></div>'
-				+ '<div id="title">' + $( this ).attr( 'title' ) + '</div>' + html);
+				+ '<div id="title">' + $( this ).attr( 'data-title' ) + '</div>' + html);
 
 		$( this ).find( '#closeButton' ).click( function() {
 			self.hide();
@@ -113,7 +113,12 @@ $( document ).ready( function(){
 		var modal = $( this ).attr( 'modal' );
 		if ( modal ) {
 			$( this ).click( function() {
-				$( '#' + modal ).show();
+				var $btn = $( '#' + modal );
+				if ( $btn.is( ':visible' ) ){
+					$btn.hide();
+				} else {
+					$btn.show();
+				}
 			} );
 		}
 	} );
