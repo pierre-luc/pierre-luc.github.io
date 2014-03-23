@@ -40,6 +40,31 @@ lors de chaque appel de méthode sur les éléments de l'ui. */
 			left : w / 2 - $( this ).width() / 2
 		});
 	};
+
+	$.fn.modal = function( action ) {
+		switch( action ) {
+			case 'open':
+				$( 'body' ).attr( 'blur', '' );
+				$( this ).show();
+				$( this ).trigger( 'modal.opened' );
+			break;
+			case 'close':
+				$( 'body' ).removeAttr( 'blur' );
+				$( this ).hide();
+				$( this ).trigger( 'modal.closed' );
+			break;
+			case 'toggle':
+				if ( $( this ).is( ':visible' ) ){
+					$( this ).modal( 'close' );
+				} else {
+					$( this ).modal( 'open' );
+				}
+			break;
+
+			default:
+		}
+	}
+
 })( jQuery )
 
 
@@ -105,7 +130,7 @@ $( document ).ready( function(){
 				+ '<div id="title">' + $( this ).attr( 'data-title' ) + '</div>' + html);
 
 		$( this ).find( '#closeButton' ).click( function() {
-			self.hide();
+			self.modal( 'close' );
 		});
 	} );
 
@@ -113,12 +138,7 @@ $( document ).ready( function(){
 		var modal = $( this ).attr( 'modal' );
 		if ( modal ) {
 			$( this ).click( function() {
-				var $btn = $( '#' + modal );
-				if ( $btn.is( ':visible' ) ){
-					$btn.hide();
-				} else {
-					$btn.show();
-				}
+				$( '#' + modal ).modal( 'toggle' );
 			} );
 		}
 	} );

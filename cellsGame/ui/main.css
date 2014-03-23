@@ -7,9 +7,9 @@
 	font-family: 'Sofadi One', cursive;
 @import url(http://fonts.googleapis.com/css?family=Iceland);
  	font-family: 'Iceland', cursive;
+@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch);
 
 	*/
-@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch);
 @import url(./icons.css);
 
 @font-face {
@@ -201,6 +201,14 @@
 		box-shadow: 0px 0px 10px 0px #222;
 
  	}
+ 		body[blur] #state {
+ 			filter: blur(2px);
+	        -webkit-filter: blur(2px);
+	        -moz-filter: blur(2px);
+	        -o-filter: blur(2px);
+	        -ms-filter: blur(2px);
+	        
+ 		}
 
  		#state #background {
  			z-index: -1;
@@ -265,7 +273,15 @@
 			-o-box-shadow: 0px 0px 10px 0px #222;
 			box-shadow: 0px 0px 10px 0px #222;
 
- 		}
+ 		}	
+ 			body[blur] #cell {
+	 			filter: blur(2px);
+		        -webkit-filter: blur(2px);
+		        -moz-filter: blur(2px);
+		        -o-filter: blur(2px);
+		        -ms-filter: blur(2px);
+		        
+	 		}
 
  			#cell .property {
 	 			position: absolute;
@@ -409,6 +425,17 @@
 		bottom: 40px;	
 		overflow: hidden;
 	}
+
+		body[blur] #game {
+ 			filter: blur(2px);
+	        -webkit-filter: blur(2px);
+	        -moz-filter: blur(2px);
+	        -o-filter: blur(2px);
+	        -ms-filter: blur(2px);
+
+	        
+ 		}
+
 		#content {
 			position: absolute;
 			top: 0;
