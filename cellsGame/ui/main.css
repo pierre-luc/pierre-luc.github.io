@@ -207,7 +207,6 @@
 	        -moz-filter: blur(2px);
 	        -o-filter: blur(2px);
 	        -ms-filter: blur(2px);
-	        
  		}
 
  		#state #background {
@@ -253,7 +252,7 @@
  		#cell {
 			background-image: url(./img/wood.jpg);
  			position: fixed;
-			bottom: -50px;
+			bottom: -220px;
 			left: 20px;
 			height: 250px;
 			width: 250px;
@@ -274,6 +273,10 @@
 			box-shadow: 0px 0px 10px 0px #222;
 
  		}	
+ 			body[game=started] #cell, body[game=started] #cellBG {
+				bottom: -50px;
+ 			}
+
  			body[blur] #cell {
 	 			filter: blur(2px);
 		        -webkit-filter: blur(2px);
@@ -282,6 +285,38 @@
 		        -ms-filter: blur(2px);
 		        
 	 		}
+
+	 		#cell #cycle {
+	 			position: absolute;
+	 			top: 50px;
+	 			left: 30px;
+ 				text-shadow: 1px 1px 0 #222;
+	 		}
+				#cell #cycle #playButton {
+					position: absolute;
+					top: 0px;
+ 					text-shadow: 1px 1px 0 #222;
+ 					cursor: pointer;
+ 					-webkit-transition: none;
+					   -moz-transition: none;
+					    -ms-transition: none;
+					     -o-transition: none;
+					        transition: none;
+				}
+					#cell #cycle #playButton:hover {
+						color: lime;
+					}
+
+	 			#cell #cycle #cycleNumber {
+	 				position: absolute;
+					top: -10px;
+					left: 20px;
+					width: 130px;
+					height: 20px;
+					font-size: 15px;
+					height: 15px;
+	 			}
+
 
  			#cell .property {
 	 			position: absolute;
@@ -408,7 +443,7 @@
 				opacity: 0.9;
 				
 	 			position: fixed;
-				bottom: -50px;
+				bottom: -220px;
 				left: 20px;
 				height: 250px;
 				width: 250px;

@@ -143,6 +143,22 @@ $( document ).ready( function(){
 		}
 	} );
 
+
+	/**
+	 * PlayButton
+	 */
+	$( '#cell #playButton' ).click( function() {
+		if ( $( this ).attr( 'state' ) == 'play' ) {
+			$( this ).attr( 'state', 'pause' );
+			$( this ).html( '<span class="icon-pause3"></span>' );
+			$( this ).trigger( 'paused' );
+		} else {
+			$( this ).attr( 'state', 'play' );
+			$( this ).html( '<span class="icon-play3"></span>' );
+			$( this ).trigger( 'continue' );
+		}
+	});
+
 	/**
 	 * Resizing
 	 */
@@ -163,6 +179,7 @@ $( document ).ready( function(){
 	$( window ).resize( resized );
 
 	$( '#game #start' ).click( function(){
+		$( 'body' ).attr( 'game', 'started' );
 		$( '#game' ).attr( 'started' , '' );
 		$( document ).trigger( 'startGame' );
 	} );
