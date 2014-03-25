@@ -4,26 +4,21 @@
 		<meta charset="utf-8">
 		<title>Test ui</title>
 		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="xcharts/xcharts.min.css">
 		<script src="../js/jquery.js"></script>
+		<script src="../js/cellsGame.js"></script>
+		<script src="D3/d3.min.js" charset="utf-8"></script>
+		<script src="xcharts/xcharts.min.js"></script>
 		<script src="main.js"></script>
+		<script src="stats.js"></script>
+		<link rel="stylesheet" href="stats.css">
 	</head>
 	<body>
-		<div id="settings" data-title="Paramètres" class="modal" data-style="center">
+		<div id="statistics" data-title="Statistiques" class="modal" data-style="center">
 				<div id="body">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit fugit magni odit maxime libero similique ratione ab odio explicabo atque. Molestias, ipsam, quo excepturi id in tempora suscipit omnis exercitationem.
+					<div id="stats">
+						<figure id="chart" style="width: 400px; height: 300px;"></figure>
+					</div>
 				</div>
 		</div>
 		<div id="game">
@@ -43,8 +38,9 @@
 		</div>
 		<div id="state">
 			<div id="background"></div>
-			<div id="settingsButton" class="button medium" modal="settings"><span class="icon-cog"></span></div>
+			<div id="settingsButton" class="button medium" modal="statistics"><span class="icon-graph"></span></div>
 			<div id="demography" class="label">Démographie : 213</div>
 		</div>
+
 	</body>
 </html>
