@@ -47,6 +47,38 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			color: #D94B32;
 		}
 
+		.ink-yellow {
+			color: #f0da4f;
+		}
+
+/*---------------------------------*/
+/* background colors
+/*---------------------------------*/
+
+		.back-ink-blue {
+			background-color: #00A9BC;
+		}
+
+		.back-ink-green {
+			background-color: #A4C403;
+		}
+
+		.back-ink-orange {
+			background-color: #FFA600;
+		}
+
+		.back-ink-violet {
+			background-color: #8448B2;
+		}
+
+		.back-ink-red {
+			background-color: #D94B32;
+		}
+
+		.back-ink-yellow {
+			background-color: #f0da4f;
+		}
+
 /*---------------------------*/
 /* Global
 /*---------------------------*/
@@ -154,6 +186,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			
 			#container[class*=red] #title {
 				background-color: #D94B32;
+			}
+
+			#container[class*=yellow] #title {
+				background-color: #f0da4f;
 			}
 
 			#menu #title {
@@ -274,6 +310,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			#container[class*=red] .scrollup {
 				background-color: #D94B32;
 			}
+
+			#container[class*=yellow] .scrollup {
+				background-color: #f0da4f;
+			}
 	/*----------------------------*/
 	/* Global page content
 	/*----------------------------*/
@@ -311,6 +351,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 						color: #D94B32;
 						text-shadow: 0 0 1px #D94B32;
 					}
+					#container[class*=yellow] > #content {
+						color: #f0da4f;
+						text-shadow: 0 0 1px #f0da4f;
+					}
 
 			/*----------------------------------*/
 			/* Article
@@ -341,6 +385,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 						#container[class*=red] > #content .article #title{
 							background-color: #D94B32;
 						}
+						#container[class*=yellow] > #content .article #title{
+							background-color: #f0da4f;
+						}
 					#content .article #content {
 						color: #ddd;
 						font-size: 13px;
@@ -358,7 +405,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			margin-top: 50px;
 			opacity: 0.9;
 		}
-			
+			.item .link[open].clearfix, .item .link[open].gallery {
+				padding-bottom: 74px !important;
+			}
+
 
 			.item[class*=blue] #bar {
 				background-color: #00A9BC;
@@ -398,6 +448,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				.item[class*=red]:hover #subtitle {
 					color: #D94B32;
 					text-shadow: 0 0 1px #D94B32;
+				}
+
+
+			.item[class*=yellow] #bar {
+				background-color: #f0da4f;
+			}
+				.item[class*=yellow]:hover #subtitle {
+					color: #f0da4f;
+					text-shadow: 0 0 1px #f0da4f;
 				}
 
 
@@ -466,6 +525,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 					.item[class*=violet]:hover #text p:first-letter {
 						color: #8448B2;
+					}
+
+					.item[class*=yellow]:hover #text p:first-letter {
+						color: #f0da4f;
 					}
 
 
@@ -641,6 +704,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 						} 
 
 					.item .link #button, .item .link #compatible, .item .link #description	{
+						clear: both;
+						padding-bottom: 25px;
 						opacity: 0;
 					}
 						.item .link[open] #button, .item .link[open] #compatible, .item .link[open] #description	{
@@ -675,6 +740,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 							.item[class*=red] .link[open]:before {
 								border-right: solid 15px #D94B32;
 							}
+							
+							.item[class*=yellow] .link[open] {
+								border: solid 5px #f0da4f;
+							}
+						
+							.item[class*=yellow] .link[open]:before {
+								border-right: solid 15px #f0da4f;
+							}
+
+							
+
+
 
 				.item .link #title {
 					position: absolute;
@@ -697,6 +774,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					.item[class*=red] .link[open] #title {
 						background-color: #D94B32;
 					}
+					.item[class*=yellow] .link[open] #title {
+						background-color: #f0da4f;
+					}
 
 
 					.item[class*=blue] a {
@@ -710,6 +790,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					}
 						.item[class*=red] a:hover {
 							text-shadow: 0 0 2px #D94B32;
+						}
+					
+					.item[class*=yellow] a {
+						color: #f0da4f;
+					}
+						.item[class*=yellow] a:hover {
+							text-shadow: 0 0 2px #f0da4f;
 						}
 
 				.item .link #description {
@@ -768,6 +855,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 					.item[class*=red] .link #button:hover {
 						background-color: #D94B32;
+					}
+
+					.item[class*=yellow] .link #button {
+						border-top: solid 1px #f0da4f;
+						border-bottom: solid 2px #f0da4f;
+					}
+
+					.item[class*=yellow] .link #button:hover {
+						background-color: #f0da4f;
 					}
 
 				.item .link #compatible {
@@ -848,9 +944,48 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				.item[class*=orange] .navigator li {
 					background-position-y: -80px;
 				}
+
+				.item[class*=yellow] .navigator li {
+					background-position-y: -80px;
+				}
 					.navigator li:hover {
 						background-position-y: 0px !important;
 					}
+
+		/*--------------------------------*/
+		/* Gallery
+		/*--------------------------------*/
+
+				ul#gallery {
+				    margin: 0;
+				    padding: 30px 18px;
+				}
+				 
+				ul#gallery li {
+				    float: left;
+				    margin: 0 10px;
+				    padding:5px;
+				    border: 1px solid #f0da4f;
+				    list-style: none;
+				    background: #f0da4f;
+				    margin: 3px;
+				}
+				 
+				ul#gallery li a img  {
+				    float: left;
+				    width: 300px;
+				    margin: 0;
+				}
+				 
+				ul#gallery li a:hover img {
+				    -webkit-transform: scale(1.4) rotate(-10deg);/* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
+				    -moz-transform: scale(1.4) rotate(-10deg);
+				    -o-transform: scale(1.4) rotate(-10deg);
+				    transform: scale(1.4) rotate(-10deg);
+				    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* L'ombre appliquée sur la photo au survol */
+				    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+				    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+				}
 
 
 		/*--------------------------------*/
@@ -870,6 +1005,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					
 					.social #website {
 						background-position: 0px 1px;
+						display: inline-block;
 					}
 					.social #mail {
 						background-position: -18px 1px;
@@ -1011,6 +1147,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					text-shadow: 0 0 1px #D94B32;
 				}
 
+				.item[class*=yellow] #subtitle {
+					color: #f0da4f;
+					text-shadow: 0 0 1px #f0da4f;
+				}
+
 
 					.item[class*=green] #text p:first-letter {
 						color: #A4C403;
@@ -1030,6 +1171,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 					.item[class*=violet] #text p:first-letter {
 						color: #8448B2;
+					}
+
+					.item[class*=yellow] #text p:first-letter {
+						color: #f0da4f;
 					}
 
 
@@ -1094,6 +1239,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 						.item[class*=red] .link #title {
 							background-color: #D94B32;
+						}
+
+
+						.item[class*=yellow] .link, .item .link {
+							border: solid 5px #f0da4f;
+						}
+						
+							.item[class*=yellow] .link:before {
+								border-right: solid 15px #f0da4f;
+							}
+
+						.item[class*=yellow] .link #title {
+							background-color: #f0da4f;
 						}
 
 		.social div {

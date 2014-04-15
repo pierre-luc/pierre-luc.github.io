@@ -17,7 +17,7 @@ $(document).ready(function(){
 						color: $el.attr('color')
 					};
 					var article = $('#item-model').html();
-						article = '<article class="item {{color}}">' + article + '</article>';
+						article = '<article class="'+ $el.attr("class") + ' {{color}}">' + article + '</article>';
 						article = Mustache.render( article, data );
 
 					$('#container').append( article );
@@ -166,27 +166,30 @@ $(document).ready(function(){
 								href: ($el.attr('href'))?($el.attr('href')):('#' + this.id),
 							};
 							var article = $('#link-model').html();
-								article = '<article class="link">' + article + '</article>';
+								article = '<article class="link '+($el.attr('type')?$el.attr('type'):'')+'">' + article + '</article>';
 								article = Mustache.render( article, data );
 
 							self.append( article );
 
 							var last = self.children().last();
 							last.contents('#description').html( $el.html() );
-							console.log($el.attr('browsers'));
-							var browsers = $el.attr('browsers').split(',');
-							for (i in browsers) {
-								last.contents('#compatible').contents('.navigator').append('<li id="' + browsers[i].trim() + '"></li>')
+							
+							if ( $el.attr('browsers') ) {
+								var browsers = $el.attr('browsers').split(',');
+								for (i in browsers) {
+									last.contents('#compatible').contents('.navigator').append('<li id="' + browsers[i].trim() + '"></li>')
+								}
+							} else {
+								last.contents('#compatible').remove();
+								last.contents('#button').css({bottom:'-2px'});
+								last.contents('#button').remove();
 							}
 						}
 				});
 			
 		}); 
 
-
-
-
-
+		
 
 		var link = $('#links .link').each(function(){
 			var self = $(this);
