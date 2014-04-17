@@ -13,7 +13,7 @@
 
 	cellsGame.engine = {
 		cycle : 0,
-		cycleDelay : 1/2,
+		cycleDelay : 1/3,
 		paused : false,
 		cycleTimer : function(){
 			var self = this;
