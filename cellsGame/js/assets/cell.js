@@ -221,7 +221,6 @@
 		var y = this.coord.y;
 		var coord = { x : x, y : y};
 
-			console.log(coord);
 			if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
 				coord.x = x - 1;
 				coord.y = y;		
@@ -243,7 +242,7 @@
 				p.life = p.maxLife / 2;
 				var c = new Cell({properties: p});
 				c.coord = coord;
-				root.cellsGame.engine.world.grid[coord.x][coord.y] = true;
+				root.cellsGame.engine.world.grid[coord.x][coord.y] = c;
 				$( this ).trigger( "divised", { cell : c } );
 			}
 
