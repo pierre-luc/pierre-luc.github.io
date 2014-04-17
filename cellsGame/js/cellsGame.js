@@ -13,7 +13,7 @@
 
 	cellsGame.engine = {
 		cycle : 0,
-		cycleDelay : 1/10,
+		cycleDelay : 1/2,
 		paused : false,
 		cycleTimer : function(){
 			var self = this;
@@ -64,18 +64,77 @@
 
 
 	cellsGame.game = {
+
+		audio: {
+			maxVolume: 1,
+			down : function(volume, callback){
+			    var factor  = 0.1,
+			        speed   = 50,
+			        audio = $('audio')[0];
+
+			    if (volume > factor) {
+			        setTimeout(function(){
+			            cellsGame.game.audio.down((audio.volume -= factor), callback);         
+			        }, speed);
+			    } else {
+			        (typeof(callback) !== 'function') || callback();
+			    }
+			},
+
+			up : function(volume, callback){
+			    var factor  = 0.1,
+			        speed   = 50,
+			        audio = $('audio')[0];
+
+			    if (volume + factor < this.maxVolume) {
+			        setTimeout(function(){
+			            cellsGame.game.audio.up((audio.volume += factor), callback);         
+			        }, speed);
+			    } else {
+			        (typeof(callback) !== 'function') || callback();
+			    }
+			},
+
+
+
+			pause: function() {
+
+				this.down($('audio')[0].volume, function(){});
+
+			},
+
+			play: function() {
+				this.up($('audio')[0].volume, function(){});
+
+			},
+
+			switch: function() {
+
+				if ( cellsGame.engine.paused ) {
+					this.pause();
+				} else {
+					this.play();
+				}
+			}
+		},
+
 		init  : function() {
 
 			$('#playButton').click(function(){
 				cellsGame.engine.paused = !cellsGame.engine.paused;
+				cellsGame.game.audio.switch();
 			});
 
+			
+			$('#content').append('<audio loop>'
+					 		   + 	'<source src="audio/ambiant.mp3" type="audio/mp3">'
+							   + '</audio>');
 
 			$(document).on('startGame', cellsGame.game.run);
 		},
 		run : function() {
 			var cell;
-			
+			$('audio')[0].play();
 
 			var nbCells = 0;
 			function createCell( n, c ) {
