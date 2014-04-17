@@ -1,4 +1,6 @@
 (function(){
+
+	console.log('cellsGame loaded');
 	var cellsGame = {
 		addHandler : function( name, func, data ) {
 			if ( data ) {
@@ -32,14 +34,158 @@
 		nbMaxCell : 5000,
 		nbCell : 0,
 		cells : {},
+		world: {
+			grid: null,
+			rows: 10,
+			cols: 10
+		},
+
+		init : function() {
+			this.world.rows = cellsGame.grid.rowsCount;
+			this.world.cols = cellsGame.grid.colsCount;
+
+			this.world.grid = new Array();
+			for (var i = 0; i < this.world.cols; i++) {
+				this.world.grid[i] = new Array();
+			}
+		},
 
 		run : function() {
+			this.init();
 			this.cycleTimer();
 		}
 	};
 
 	cellsGame.init = function() {
+		cellsGame.grid.init();
 		cellsGame.engine.run();
+		cellsGame.game.init();
+	};
+
+
+	cellsGame.game = {
+		init  : function() {
+
+			$('#playButton').click(function(){
+				cellsGame.engine.paused = !cellsGame.engine.paused;
+			});
+
+
+			$(document).on('startGame', cellsGame.game.run);
+		},
+		run : function() {
+			var cell;
+			
+
+			var nbCells = 0;
+			function createCell( n, c ) {
+				if ( nbCells >= 100 ) {
+					return;
+				}
+				nbCells++;
+
+				$('#cellProperies_' + n + ' #buttons').toggle();
+				if ( !c ) {
+					var c = new Cell({
+						properties : new CellProperties( {energy:3, life:3})
+					});
+				}
+
+				cellsGame.grid.drawIn(c.getCoord().x + 1, 
+									  c.getCoord().y + 1, 
+									  new Array(Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)));
+
+				var cycleChanged = function(e){
+					$('#cell #cycle #cycleNumber').html( 'cycle n° ' + cellsGame.engine.cycle );
+					$('#demography').html( 'Démographie : ' + cellsGame.engine.nbCell );
+				};
+				var divised = function( e, data ) {
+					createCell( data.cell.getUniqid(), data.cell );
+					cycleChanged();
+				};
+				c.addHandler( 'divised', divised );
+
+
+				$('#cellProperies_' + n + ' #uniqid').html( 'ID : ' + c.getUniqid() );
+
+
+				c.addHandler( 'dead', function(){
+					cellsGame.grid.clearRect(c.getCoord().x + 1, c.getCoord().y + 1);
+					nbCells--;
+					cycleChanged();
+				});
+
+				$('#cellProperies_' + n + ' #toggle').click(function(){
+					$('#cellProperies_' + n + ' #buttons').toggle();
+				});
+
+				var actions = [ 'incAge', 'division', 'incEnergy',
+							    'decEnergy', 'incLife', 'decLife',
+							    'incRegenLife', 'incRegenEnergy',
+							    'decRegenLife', 'decRegenEnergy' ];
+				
+				$.each(actions, function(i, action) {
+					$('#cellProperies_' + n + ' #' + action ).click(function(){c[ action ]();});	
+				}); 
+
+				return c;
+			}
+
+
+			var c = new Cell({
+				properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
+			});
+
+			var energyChanged = function(e){
+				var max = c.getMaxEnergy(),
+				    value   = c.getEnergy(),
+				    regen = c.getRegenEnergy();
+
+				$('#cell #energy').updateMaxValue( max );
+				$('#cell #energy').updateValue( value );
+				$('#cell #energy').updateRegen( regen );
+			}
+			c.addHandler( 'energyChanged', energyChanged );
+			c.addHandler( 'regenEnergyChanged', energyChanged );
+			energyChanged();
+				
+			var lifeChanged = function(e){
+				var max = c.getMaxLife(),
+				    value   = c.getLife(),
+				    regen = c.getRegenLife();
+
+				$('#cell #life').updateMaxValue( max );
+				$('#cell #life').updateValue( value );
+				$('#cell #life').updateRegen( regen );
+			}
+			c.addHandler( 'lifeChanged', lifeChanged );
+			c.addHandler( 'regenLifeChanged', lifeChanged );
+			lifeChanged();
+
+			var cycleChanged = function(e){
+				$('#cell #cycle #cycleNumber').html( 'cycle n° ' + cellsGame.engine.cycle );
+				$('#demography').html( 'Démographie : ' + cellsGame.engine.nbCell );
+			};
+			cellsGame.addHandler( 'newCycle', cycleChanged );
+			cycleChanged();
+
+
+			var divised = function( e, data ) {
+				createCell( data.cell.getUniqid(), data.cell );
+				cycleChanged();
+			};
+			c.addHandler( 'divised', divised );
+			c.division();
+			cellsGame.engine.paused = false;
+			$( '#cell #cycle' ).show();
+
+			c.coord.x = Math.floor(Math.random() * cellsGame.grid.colsCount) + 1;
+			c.coord.y = Math.floor(Math.random() * cellsGame.grid.rowsCount) + 1;
+
+			cell = c;
+			
+			
+		}
 	};
 
 	cellsGame.utils = {
@@ -98,7 +244,10 @@
 		}
 	};
 
-	cellsGame.init();
+	$(document).ready(function(){
+		console.log('cellsGame.init()');
+		cellsGame.init();
+	});
 
 	if (typeof window.cellsGame === "undefined") {
 		window.cellsGame = cellsGame;

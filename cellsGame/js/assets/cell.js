@@ -49,6 +49,11 @@
 		this.addHandler( 'newCycle', function(){
 			self.incAge();
 		});
+
+		this.coord = {
+			x : 0,
+			y : 0
+		}
 	};
 
 
@@ -97,6 +102,10 @@
 		return this.properties.getAge();
 	}
 
+	Cell.prototype.getCoord = function() {
+		return this.coord;
+	}
+
 
 
 	/***************
@@ -112,6 +121,8 @@
 		if ( root.cellsGame.engine.nbCell > 0) {
 			root.cellsGame.engine.nbCell--;
 		}
+
+		delete(root.cellsGame.engine.world.grid[this.coord.x][this.coord.y]);
 
 		delete( root.cellsGame.engine.cells[ this.uniqid ] );
 
@@ -206,12 +217,36 @@
 		if ( root.cellsGame.engine.nbCell >= root.cellsGame.engine.nbMaxCell ) {
 			return;
 		}
-		var p = new CellProperties( this.properties.getAttributs() );
-		p.regenLife = this.properties.getRegenLife();
-		p.age = 0;
-		p.life = p.maxLife / 2;
-		var c = new Cell({properties: p});
-		$( this ).trigger( "divised", { cell : c } );
+		var x = this.coord.x;
+		var y = this.coord.y;
+		var coord = { x : x, y : y};
+
+			console.log(coord);
+			if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
+				coord.x = x - 1;
+				coord.y = y;		
+			} else if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
+				coord.x = x + 1;
+				coord.y = y;		
+			} else if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
+				coord.x = x;
+				coord.y = y - 1;		
+			} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
+				coord.x = x;
+				coord.y = y + 1;		
+			}
+
+			if (x != coord.x || y != coord.y) {
+				var p = new CellProperties( this.properties.getAttributs() );
+				p.regenLife = this.properties.getRegenLife();
+				p.age = 0;
+				p.life = p.maxLife / 2;
+				var c = new Cell({properties: p});
+				c.coord = coord;
+				root.cellsGame.engine.world.grid[coord.x][coord.y] = true;
+				$( this ).trigger( "divised", { cell : c } );
+			}
+
 	}
 
 	if (typeof root.Cell === "undefined") {

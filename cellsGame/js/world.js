@@ -1,4 +1,5 @@
 $( document ).ready( function(){
+
 	function bar(max, value, maxChars) {
 	var e='';
 	var nC = value * maxChars / max;
@@ -23,7 +24,7 @@ function createCell( n, c ) {
 		return;
 	}
 	nbCells++;
-	$('#cellEnv').append(
+	/*$('#cellEnv').append(
 		'<div class="bloc" id="cellProperies_' + n + '">'
 	  +    '<div id="uniqid"></div>'
 	  +    '<div id="age"></div>'
@@ -50,12 +51,38 @@ function createCell( n, c ) {
 	  +    '</div>'
 	  +    '<br>'
       + '</div>'
-	);
+	);*/
+
+	/*
+		var b = null;
+		var vel = null;
+	    for (var i=0; i<30; i++) {
+	        var radius = Math.random() * 25;
+	        // Placer aléatoirement les objets dans le canvas
+	        b = box2dUtils.createBall(world,
+	                Math.random() * canvasWidth,
+	                Math.random() * canvasHeight,
+	                radius, false, 'ball'+i);
+			vel = b.GetBody().GetLinearVelocity();
+			vel.x = Math.random() * 75 - 75/2;
+			vel.y = Math.random() * 75 - 75/2;
+	    }
+	*/
+
+
 	$('#cellProperies_' + n + ' #buttons').toggle();
 	if ( !c ) {
 		var c = new Cell({
 			properties : new CellProperties( {energy:3, life:3})
 		});
+		var radius = Math.random() * 25;
+		var b = box2dUtils.createBall(world,
+			Math.random() * cellWidth,
+			Math.random() * cellHeight,
+			radius, false, c);
+		vel = b.GetBody.GetLinearVelocity();
+		vel.x = Math.random() * 50 - 50/2;
+		vel.y = Math.random() * 50 - 50/2;
 	}
 
 
@@ -135,9 +162,31 @@ cycleChanged();
 //var c = createCell(0);
 var cell;
 var startGame = function() {
+	//$( document ).trigger( 'startGIP' );
+	window.cellsGame.gip.init();
 	var c = new Cell({
 		properties : new CellProperties( {energy:3, life:3, lifetime: 1000})
 	});
+
+	var player = null;  // joueur
+	// Créer le player
+	player = new Player(30);
+	player.createPlayer(world, 25, 30, 20, c);
+
+	// Désactiver les scrollings vertical lors d'un appui sur les touches directionnelles "haut" et "bas"
+	document.onkeydown = function(event) {
+	    return event.keyCode != 38 && event.keyCode != 40;
+	}
+
+	// Ajouter les listeners d'évènements
+	window.addEventListener('keydown', window.cellsGame.gip.handleKeyDown);
+	window.addEventListener('keyup', window.cellsGame.gip.handleKeyUp);
+ 
+    // Exécuter le rendu de l'environnement 2d
+    window.setInterval(window.cellsGame.gip.update, 1000 / 60);
+
+
+
 
 	var energyChanged = function(e){
 		var max = c.getMaxEnergy(),

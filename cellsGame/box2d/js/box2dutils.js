@@ -1,4 +1,4 @@
-(function(){
+(function( root ){
     // "Import" des classes box2dweb
 	var b2World = Box2D.Dynamics.b2World;
 	var b2Vec2 = Box2D.Common.Math.b2Vec2;
@@ -18,7 +18,7 @@
 	 * Constructeur
 	 */
 	Box2dUtils = function() {
-		this.world = null;
+		this.world = root.cellsGame.gip.world;
 		this.SCALE = 30;    // Définir l'échelle
 	}
 
@@ -45,7 +45,6 @@
 			debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
 			debugDraw.SetDrawScale(30.0);       // échelle
 			world.SetDebugDraw(debugDraw);
-		 	console.log(world);
     		return world;
         },
         createBody : function(type, world, x, y, dimensions, fixed, userData) {
@@ -113,4 +112,4 @@
 	}
 
 
-}());
+})( window );
