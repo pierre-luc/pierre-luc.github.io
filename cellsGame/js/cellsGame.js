@@ -153,6 +153,7 @@
 				cellsGame.grid.drawIn(c.getCoord().x + 1, 
 									  c.getCoord().y + 1, 
 									  new Array(Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)));
+				cellsGame.grid.addProgressBar(c);
 
 				var cycleChanged = function(e){
 					$('#cell #cycle #cycleNumber').html( 'cycle n° ' + cellsGame.engine.cycle );

@@ -27,7 +27,8 @@
 		gridHeightEnd : 0,
 		ind : 5,
 		rowsCount : 10,
-		colsCount : 10
+		colsCount : 10,
+		cellSelected : null
 	};
 
 	grid.init = function(c, r) {
@@ -85,6 +86,31 @@
 		this.context.lineWidth = 0.3;
 		this.context.stroke();
 
+		canvas.click(function (e) {
+			var x = e.clientX;
+			var y = e.clientY;
+
+			var self = window.cellsGame.grid;
+
+			if (x < self.gridWidthBegin || x >= self.gridWidthEnd || y < self.gridHeightBegin || y >= self.gridHeightEnd){
+				self.cellSelected = null;
+				return false;
+			}
+
+			var c = 0;
+			var r = 0;
+
+			c = Math.floor((x - self.gridWidthBegin) / self.ind) + 1;
+			r = Math.floor((y - self.gridHeightBegin) / self.ind) + 1;
+
+			self.cellSelected = {
+				x : c,
+				y : r
+			}
+
+			//console.log('c : ' + c + ', r : ' + r);
+		});
+
 		//this.rowsCount = (this.gridHeightEnd - this.gridHeightBegin) / this.ind;
 		//this.colsCount = (this.gridWidthEnd - this.gridWidthBegin) / this.ind;
 	}
@@ -92,7 +118,7 @@
 	grid.drawIn = function(c, r, color) {
 		if (typeof color === 'undefined') color = new Array('100', '100', '100');
 
-		if (c > this.colsCount || r > this.rowsCount) return false; 
+		if (c > this.colsCount || c <= 0 || r > this.rowsCount || r <= 0) return false; 
 		centerX = this.gridWidthBegin + (c-1)*this.ind + this.ind/2;
 		centerY = this.gridHeightBegin + (r-1)*this.ind + this.ind/2;
 
@@ -101,11 +127,60 @@
 		this.context.closePath();
 
 		this.context.lineWidth = this.ind/20;
-		this.context.fillStyle = 'rgba('+ color[0] +', '+ color[1] +', '+ color[2] +', 1)';
-		//this.context.strokeStyle = 'rgba(125, 125, 125, 75)';
+		this.context.fillStyle = 'rgba('+ color[0] +', '+ color[1] +', '+ color[2] +', .75)';
+		this.context.strokeStyle = 'rgba(256, 256, 256, 1)';
 
 		this.context.fill();
 		this.context.stroke();
+	}
+
+	grid.drawProgressBar = function(cell) {
+	//grid.drawProgressBar = function(coord, life, lifetime) {
+		console.log('drawProgressBar');
+		if (typeof cell === 'undefined') return false;
+
+		var coords = cell.getCoord();
+		if (coords.x >= this.colsCount || coords.x < 0 || coords.y > this.rowsCount || coords.y < 0) return false;
+		centerX = this.gridWidthBegin + (coords.x)*this.ind + this.ind/2;
+		centerY = this.gridHeightBegin + (coords.y)*this.ind + this.ind/2;
+
+		//definie la forme à dessiner
+		this.context.beginPath();
+		this.context.arc(centerX, centerY, this.ind/2 - this.ind/15, 0, Math.PI/2, false);
+		this.context.moveTo(centerX, centerY);
+		this.context.closePath();
+
+		//largueur du cercle
+		this.context.lineWidth = this.ind/20;
+		
+		//couleur du cercle
+		this.context.strokeStyle = 'white';
+
+		progress = (cell.getAge() * Math.PI*2) / cell.getLifetime();
+
+		this.context.beginPath();
+		this.context.arc(centerX, centerY, this.ind/2 - this.ind/15, -Math.PI/2, progress - Math.PI/2, false);
+		this.context.moveTo(centerX, centerY);
+		this.context.closePath();
+
+		if (progress >= Math.PI*2) {
+			return false;
+		} else if (progress >= (.8*cell.getLifetime() * Math.PI*2) / cell.getLifetime()) {
+			this.context.strokeStyle = 'red';
+		} else {
+			this.context.strokeStyle = 'lime';
+		}
+
+		this.context.stroke();
+	}
+
+	grid.addProgressBar = function (cell) {
+		var updateProgressBar = function(e) {
+			grid.drawProgressBar(cell);
+		}
+
+		cell.addHandler('ageChanged', updateProgressBar);
+		updateProgressBar();
 	}
 
 	grid.test = function() {
@@ -139,7 +214,11 @@
 
 	//$( document ).on( 'startGame', grid.run );
 	//grid.run();
-	
+
 	window.cellsGame.grid = grid;
 	console.log('grid loaded');
+
+	$(window).resize(function() {
+		grid.init();
+	});
 })();
