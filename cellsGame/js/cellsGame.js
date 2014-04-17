@@ -134,7 +134,7 @@
 		},
 		run : function() {
 			var cell;
-			$('audio')[0].play();
+			cellsGame.game.audio.play();
 
 			var nbCells = 0;
 			function createCell( n, c ) {
