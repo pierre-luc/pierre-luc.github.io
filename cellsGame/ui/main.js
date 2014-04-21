@@ -160,6 +160,27 @@ $( document ).ready( function(){
 	});
 
 	/**
+	 * MuteButton
+	 */
+	$( '#state #muteButton' ).click( function() {
+		if ( $( this ).attr( 'state' ) == 'on' ) {
+			$( this ).trigger( 'volume.off' );
+		} else {
+			$( this ).trigger( 'volume.on' );
+		}
+	});
+
+	$( '#state #muteButton' ).on('volume.on', function(){
+		$( this ).attr( 'state', 'on' );
+		$( this ).html( '<span class="icon-volume-medium"></span>' );
+	});
+
+	$( '#state #muteButton' ).on('volume.off', function(){
+		$( this ).attr( 'state', 'off' );
+		$( this ).html( '<span class="icon-volume-mute"></span>' );
+	});
+
+	/**
 	 * Resizing
 	 */
 

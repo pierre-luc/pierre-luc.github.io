@@ -53,6 +53,11 @@
 		run : function() {
 			this.init();
 			this.cycleTimer();
+		},
+
+		changeMaxCell: function(maxCell) {
+			cellsGame.grid.changeMaxCell(maxCell);
+			this.nbMaxCell = maxCell;
 		}
 	};
 
@@ -62,10 +67,10 @@
 		cellsGame.game.init();
 	};
 
-
 	cellsGame.game = {
 
 		audio: {
+			state: 1,
 			maxVolume: 1,
 			down : function(volume, callback){
 			    var factor  = 0.1,
@@ -98,22 +103,21 @@
 
 
 			pause: function() {
-
 				this.down($('audio')[0].volume, function(){});
-
 			},
 
 			play: function() {
 				this.up($('audio')[0].volume, function(){});
-
 			},
 
 			switch: function() {
 
 				if ( cellsGame.engine.paused ) {
-					this.pause();
+					$('#state #muteButton').trigger('volume.off');
+					//this.pause();
 				} else {
-					this.play();
+					$('#state #muteButton').trigger('volume.on');
+					//this.play();
 				}
 			}
 		},
@@ -125,15 +129,34 @@
 				cellsGame.game.audio.switch();
 			});
 
-			
+
 			$('#content').append('<audio loop>'
 					 		   + 	'<source src="audio/ambiant.mp3" type="audio/mp3">'
 							   + '</audio>');
 
+			$('#demography').html( 'Démographie : ' + cellsGame.engine.nbCell );
+
 			$(document).on('startGame', cellsGame.game.run);
+
+			$('#state #muteButton').on('volume.on', function(){
+				cellsGame.game.audio.play();
+			});
+
+			$('#state #muteButton').on('volume.off', function(){
+				cellsGame.game.audio.pause();
+			});
+
+			$(document).ready(function(){
+				$('#inputNbCellsMax').keyup(function(){
+					cellsGame.engine.changeMaxCell( parseInt($('#inputNbCellsMax').val()) );
+				});
+			});
+
 		},
+
 		run : function() {
 			var cell;
+			$('#settings #beforeNewGame').remove();
 			$('audio')[0].play();
 
 			var nbCells = 0;
@@ -243,7 +266,6 @@
 			c.coord.y = Math.floor(Math.random() * cellsGame.grid.rowsCount) + 1;
 
 			cell = c;
-			
 			
 		}
 	};

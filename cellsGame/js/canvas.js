@@ -26,8 +26,8 @@
 		gridHeightBegin : 0,
 		gridHeightEnd : 0,
 		ind : 5,
-		rowsCount : 10,
-		colsCount : 10,
+		rowsCount : 5,
+		colsCount : 5,
 		cellSelected : null
 	};
 
@@ -46,7 +46,6 @@
 		//console.log('h : ' + height);
 
 		this.context = canvas[0].getContext("2d");
-		//jslint
 
 		this.context.beginPath();
 		var dottedInd = 0.5;
@@ -108,11 +107,7 @@
 				y : r
 			}
 
-			//console.log('c : ' + c + ', r : ' + r);
 		});
-
-		//this.rowsCount = (this.gridHeightEnd - this.gridHeightBegin) / this.ind;
-		//this.colsCount = (this.gridWidthEnd - this.gridWidthBegin) / this.ind;
 	}
 
 	grid.drawIn = function(c, r, color) {
@@ -135,7 +130,6 @@
 	}
 
 	grid.drawProgressBar = function(cell) {
-	//grid.drawProgressBar = function(coord, life, lifetime) {
 		console.log('drawProgressBar');
 		if (typeof cell === 'undefined') return false;
 
@@ -144,31 +138,42 @@
 		centerX = this.gridWidthBegin + (coords.x)*this.ind + this.ind/2;
 		centerY = this.gridHeightBegin + (coords.y)*this.ind + this.ind/2;
 
+		progress = (cell.getAge() * Math.PI*2) / cell.getLifetime();
+
+		if (progress >= Math.PI*2) {
+			return false;
+		}
+
 		//definie la forme à dessiner
+		//cercle blanc pour effacer l'ancien
 		this.context.beginPath();
 		this.context.arc(centerX, centerY, this.ind/2 - this.ind/15, 0, Math.PI/2, false);
 		this.context.moveTo(centerX, centerY);
 		this.context.closePath();
 
 		//largueur du cercle
-		this.context.lineWidth = this.ind/20;
+		this.context.lineWidth = this.ind/20 - 1;
 		
 		//couleur du cercle
 		this.context.strokeStyle = 'white';
 
-		progress = (cell.getAge() * Math.PI*2) / cell.getLifetime();
+		this.context.stroke();
+		//context.globalCompositeOperation = 'source-over';
 
 		this.context.beginPath();
 		this.context.arc(centerX, centerY, this.ind/2 - this.ind/15, -Math.PI/2, progress - Math.PI/2, false);
 		this.context.moveTo(centerX, centerY);
 		this.context.closePath();
 
-		if (progress >= Math.PI*2) {
-			return false;
-		} else if (progress >= (.8*cell.getLifetime() * Math.PI*2) / cell.getLifetime()) {
+		if (progress >= (.8*cell.getLifetime() * Math.PI*2) / cell.getLifetime()) {
+			//s'il s'agit d'un cercle rouge (+ de 80%) on le dessine legerement plus gros pour ne pas
+			//void déborder le cercle vert
 			this.context.strokeStyle = 'red';
+			this.context.lineWidth = this.ind/20 + 1;
 		} else {
+			//- de 80%, on dessine un cercle vert
 			this.context.strokeStyle = 'lime';
+			this.context.lineWidth = this.ind/20 - .1;
 		}
 
 		this.context.stroke();
@@ -205,6 +210,13 @@
 		var w = this.ind - 2;
 		var h = this.ind - 2;
 		grid.context.clearRect(x, y, h, w);
+	}
+
+	grid.changeMaxCell = function(maxCell) {
+		var r = Math.round(Math.sqrt(maxCell)) + 1;
+		this.rowsCount = r;
+		this.colsCount = r;
+		this.init();
 	}
 
 	grid.run = function() {

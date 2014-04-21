@@ -14,6 +14,7 @@
 
 		<link rel="stylesheet" href="ui/main.css">
 		<script src="ui/main.js"></script>
+
 		<style>
 			body {
 				color: white;
@@ -36,7 +37,12 @@
 	<body>
 
 		<div id="settings" data-title="Paramètres" class="modal" data-style="center">
-			<div id="body"></div>
+				<div id="body">
+					<div id="beforeNewGame">
+						<span>Nombre de cellules max</span>
+						<input type="text" id="inputNbCellsMax" value="25">
+					</div>
+				</div>
 		</div>
 		<div id="game">
 			<div id="content">
@@ -58,7 +64,8 @@
 		</div>
 		<div id="state">
 			<div id="background"></div>
-			<div id="settingsButton" class="button medium" modal="settings"><span class="icon-cog"></span></div>
+			<div id="muteButton" class="button medium" state="on"><span class="icon-volume-medium"></span></div>
+			<div id="settingsButton" class="button medium" modal="settings"><span class="icon-settings"></span></div>
 			<div id="demography" class="label">Démographie : 213</div>
 		</div>
 		

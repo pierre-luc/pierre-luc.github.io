@@ -220,20 +220,80 @@
 		var x = this.coord.x;
 		var y = this.coord.y;
 		var coord = { x : x, y : y};
+		var ran = Math.floor(Math.random() * 4) + 1;	
 
-			if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
-				coord.x = x - 1;
-				coord.y = y;		
-			} else if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
-				coord.x = x + 1;
-				coord.y = y;		
-			} else if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
-				coord.x = x;
-				coord.y = y - 1;		
-			} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
-				coord.x = x;
-				coord.y = y + 1;		
+			switch(ran) {
+				// droite haut gauche bas
+				case 1:
+					if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
+						coord.x = x + 1;
+						coord.y = y;		
+					} else if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
+						coord.x = x;
+						coord.y = y - 1;
+				    } else if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
+						coord.x = x - 1;
+						coord.y = y;		
+					} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
+						coord.x = x;
+						coord.y = y + 1;		
+					}	
+				break;
+
+				// gauche droite haut bas
+				case 2:
+					if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
+						coord.x = x - 1;
+						coord.y = y;		
+					} else if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
+						coord.x = x + 1;
+						coord.y = y;		
+					} else if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
+						coord.x = x;
+						coord.y = y - 1;		
+					} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
+						coord.x = x;
+						coord.y = y + 1;		
+					}	
+				break;
+
+				// gauche droite bas haut
+				case 3:
+					if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
+						coord.x = x - 1;
+						coord.y = y;		
+					} else if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
+						coord.x = x + 1;
+						coord.y = y;		
+					} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
+						coord.x = x;
+						coord.y = y + 1;		
+					} else if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
+						coord.x = x;
+						coord.y = y - 1;		
+					}
+
+				break;
+
+				// bas haut gauche droite
+				case 4:
+				default:
+					if ( y > 0 && !root.cellsGame.engine.world.grid[x][y - 1] ) {
+						coord.x = x;
+						coord.y = y - 1;		
+					} else if ( y + 1 < root.cellsGame.engine.world.rows && !root.cellsGame.engine.world.grid[x][y + 1] ) {
+						coord.x = x;
+						coord.y = y + 1;		
+					} else if ( x > 0 && !root.cellsGame.engine.world.grid[x - 1][y] ) {
+						coord.x = x - 1;
+						coord.y = y;		
+					} else if ( x + 1 < root.cellsGame.engine.world.cols && !root.cellsGame.engine.world.grid[x + 1][y] ) {
+						coord.x = x + 1;
+						coord.y = y;		
+					}	
+				break;
 			}
+			
 
 			if (x != coord.x || y != coord.y) {
 				var p = new CellProperties( this.properties.getAttributs() );

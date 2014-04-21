@@ -219,10 +219,11 @@
 			background: url(./img/wood.jpg);
  		}
 
- 		#state #settingsButton {
+ 		#state #settingsButton, #state #muteButton {
  			float: left;
  			padding: 5px;
  		}
+
 
  		.label {
  			float: left;
