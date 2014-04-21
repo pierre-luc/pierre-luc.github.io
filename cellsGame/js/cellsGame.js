@@ -57,6 +57,7 @@
 
 		changeMaxCell: function(maxCell) {
 			cellsGame.grid.changeMaxCell(maxCell);
+			this.init();
 			this.nbMaxCell = maxCell;
 		}
 	};

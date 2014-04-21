@@ -130,7 +130,6 @@
 	}
 
 	grid.drawProgressBar = function(cell) {
-		console.log('drawProgressBar');
 		if (typeof cell === 'undefined') return false;
 
 		var coords = cell.getCoord();
@@ -201,7 +200,6 @@
 			}
 		}
 		//grid.context.restore();
-		console.log(count);
 	}
 
 	grid.clearRect = function(c, r) {
@@ -228,7 +226,6 @@
 	//grid.run();
 
 	window.cellsGame.grid = grid;
-	console.log('grid loaded');
 
 	$(window).resize(function() {
 		grid.init();
