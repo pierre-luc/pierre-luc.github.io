@@ -131,6 +131,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			#header .title {
 				border-right: solid 1px #FFA600;
 				font-size: 25px;
+				display: block;
 			}
 
 				#header .title span { display: inline-block; }
