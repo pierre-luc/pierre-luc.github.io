@@ -12,9 +12,9 @@ $(document).ready(function(){
 					var data = {
 						title: $el.attr('title'),
 						id: $el.attr('id'),
-						subtitle: $el.attr('subtitle'),
+						subtitle: $el.attr('data-subtitle'),
 						href: ($el.attr('href'))?($el.attr('href')):('#' + this.id),
-						color: $el.attr('color')
+						color: $el.attr('data-color')
 					};
 					var article = $('#item-model').html();
 						article = '<article class="'+ $el.attr("class") + ' {{color}}">' + article + '</article>';
@@ -130,6 +130,10 @@ $(document).ready(function(){
 		});
 		
 
+		$('*[id*=model]').each(function(){
+			$(this).find('a').attr('href', '{{href}}');
+		});
+
 		var badgeModel= $('#badge-model');
 		var badge = $('#badges article').each(function(){
 			var $el = $(this);
@@ -137,11 +141,11 @@ $(document).ready(function(){
 					$el.remove();
 					var data = {
 						name: $el.attr('id'),
-						caption: ($el.attr('caption')?($el.attr('caption')):(this.id)),
+						caption: ($el.attr('data-caption')?($el.attr('data-caption')):(this.id)),
 					};
 					var article = null;
 					if ( $el.attr('href') ) {
-						data.href = $el.attr('href');
+						data.href = $el.attr('data-href');
 					    article = $('#badge-model').html();
 					} else {
 					    article = $('#badge-model a').html();
@@ -152,9 +156,10 @@ $(document).ready(function(){
 
 				}
 		});
+		badgeModel.remove();
 
 		var linkModel = $('#link-model');		
-		var links = $('.item #links').each(function(){
+		var links = $('.item .links').each(function(){
 			var self = $(this);
 				self.contents('article').each(function(){
 					var $el = $(this);
@@ -163,7 +168,7 @@ $(document).ready(function(){
 							var data = {
 								title: $el.attr('title'),
 								id: $el.attr('id'),
-								href: ($el.attr('href'))?($el.attr('href')):('#' + this.id),
+								href: ($el.attr('data-href'))?($el.attr('data-href')):('#' + this.id),
 							};
 							var article = $('#link-model').html();
 								article = '<article class="link '+($el.attr('type')?$el.attr('type'):'')+'">' + article + '</article>';
@@ -174,8 +179,8 @@ $(document).ready(function(){
 							var last = self.children().last();
 							last.contents('#description').html( $el.html() );
 							
-							if ( $el.attr('browsers') ) {
-								var browsers = $el.attr('browsers').split(',');
+							if ( $el.attr('data-browsers') ) {
+								var browsers = $el.attr('data-browsers').split(',');
 								for (i in browsers) {
 									last.contents('#compatible').contents('.navigator').append('<li id="' + browsers[i].trim() + '"></li>')
 								}
@@ -187,13 +192,14 @@ $(document).ready(function(){
 						}
 				});
 			
-		}); 
+		});
+		linkModel.remove();
 
 		
 
-		var link = $('#links .link').each(function(){
+		var link = $('.links .link').each(function(){
 			var self = $(this);
-			$(this).contents('#title').click(function(){
+			$(this).contents('.title').click(function(){
 				if ( self.attr('open') ) {
 					self.removeAttr('open');
 				} else {

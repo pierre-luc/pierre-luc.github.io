@@ -128,12 +128,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			margin-right: 10px;
 		}
 
-			#header #title {
+			#header .title {
 				border-right: solid 1px #FFA600;
 				font-size: 25px;
 			}
 
-				#header #title span { display: inline-block; }
+				#header .title span { display: inline-block; }
 
 /*---------------------------*/
 /* Document container
@@ -169,30 +169,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				top: 0px;
 			}
 
-			#container[class*=blue] #title {
+			#container[class*=blue] .title {
 				background-color: #00A9BC;
 			}
-			#container[class*=green] #title {
+			#container[class*=green] .title {
 				background-color: #A4C403;
 			}
 
-			#container[class*=orange] #title {
+			#container[class*=orange] .title {
 				background-color: #FFA600;
 			}
 
-			#container[class*=violet] #title {
+			#container[class*=violet] .title {
 				background-color: #623584;
 			}
 			
-			#container[class*=red] #title {
+			#container[class*=red] .title {
 				background-color: #D94B32;
 			}
 
-			#container[class*=yellow] #title {
+			#container[class*=yellow] .title {
 				background-color: #f0da4f;
 			}
 
-			#menu #title {
+			#menu .title {
 				text-align: right;
 				padding: 10px;
 				font-size: 20px;
@@ -323,7 +323,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			padding-left: 210px;
 			right: 10px;
 		}
-			#container > #content > #title {
+			#container > #content > .title {
 				padding: 10px;
 				font-size: 20px;
 				font-weight: bold;
@@ -362,30 +362,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				#content .article {
 					position: relative;
 				}
-					#content .article #title {
+					#content .article .title {
 						position: relative;
 						right: 0;
 						height: 20px;
 						padding: 5px;
 						color: #fff;
 					}
-						#container[class*=blue] > #content .article #title{
+						#container[class*=blue] > #content .article .title{
 							background-color: #00A9BC;
 						}
 
-						#container[class*=green] > #content .article #title{
+						#container[class*=green] > #content .article .title{
 							background-color: #A4C403;
 						}
-						#container[class*=orange] > #content .article #title{
+						#container[class*=orange] > #content .article .title{
 							background-color: #FFA600;
 						}
-						#container[class*=violet] > #content .article #title{
+						#container[class*=violet] > #content .article .title{
 							background-color: #8448B2;
 						}
-						#container[class*=red] > #content .article #title{
+						#container[class*=red] > #content .article .title{
 							background-color: #D94B32;
 						}
-						#container[class*=yellow] > #content .article #title{
+						#container[class*=yellow] > #content .article .title{
 							background-color: #f0da4f;
 						}
 					#content .article #content {
@@ -482,7 +482,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				background-color: white;
 			}
 
-			.item #title {
+			.item .title {
 				text-transform: uppercase;
 				text-align: right;
 				padding-top: 2px;
@@ -620,7 +620,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			         			border-radius: 40px;
 					}
 
-						.item .badge #caption {
+						.item .badge .caption {
 							opacity: 0;
 							position: absolute;
 							top: -25px;
@@ -645,7 +645,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 								box-shadow: 0px 0px 20px 0px #111;
 								filter:progid:DXImageTransform.Microsoft.Shadow(color=#111, Direction=NaN, Strength=20);
 						}
-							.item .badge #caption:after {
+							.item .badge .caption:after {
 								position: absolute;
 								content: '';
 								left: 25px;
@@ -661,14 +661,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 								z-index: 3;
 							}
-								.item .badge:hover #caption:after {
+								.item .badge:hover .caption:after {
 									left: 20px;
 									border: solid 10px transparent;
 									border-left-color: #111;
 								}
 
 
-							.item .badge:hover #caption {
+							.item .badge:hover .caption {
 								opacity: 1;
 								-webkit-transform: rotate(-25deg);
 								   -moz-transform: rotate(-25deg);
@@ -681,7 +681,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		/* Links
 		/*--------------------------------*/
 
-			.item #links {
+			.item .links {
 				position: relative;
 				margin-top: 10px; 
 				width: 100%;
@@ -753,7 +753,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 
 
-				.item .link #title {
+				.item .link .title {
 					position: absolute;
 					text-align: left;
 					top: -1px;
@@ -763,18 +763,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					z-index: 4;
 					cursor: pointer;
 				}		
-					.item .link #title:hover {
+					.item .link .title:hover {
 						color: #fff;
 						padding-left: 10px;
 					}
 
-					.item[class*=blue] .link[open] #title {
+					.item[class*=blue] .link[open] .title {
 						background-color: #00A9BC;
 					}
-					.item[class*=red] .link[open] #title {
+					.item[class*=red] .link[open] .title {
 						background-color: #D94B32;
 					}
-					.item[class*=yellow] .link[open] #title {
+					.item[class*=yellow] .link[open] .title {
 						background-color: #f0da4f;
 					}
 
@@ -878,7 +878,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 						float: left;
 					}
 
-					.item .link #compatible #caption {
+					.item .link #compatible .caption {
 						padding-top: 3px;
 						opacity: 0.8;
 					}
@@ -956,12 +956,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		/* Gallery
 		/*--------------------------------*/
 
-				ul#gallery {
+				.gallery {
 				    margin: 0;
 				    padding: 30px 18px;
 				}
 				 
-				ul#gallery li {
+				.gallery li {
 				    float: left;
 				    margin: 0 10px;
 				    padding:5px;
@@ -971,13 +971,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				    margin: 3px;
 				}
 				 
-				ul#gallery li a img  {
+				.gallery li a img  {
 				    float: left;
 				    width: 300px;
 				    margin: 0;
 				}
 				 
-				ul#gallery li a:hover img {
+				.gallery li a:hover img {
 				    -webkit-transform: scale(1.4) rotate(-10deg);/* Agrandissement de la photo à l'échelle 1.4 et rotation de -10 degrés */
 				    -moz-transform: scale(1.4) rotate(-10deg);
 				    -o-transform: scale(1.4) rotate(-10deg);
@@ -1031,12 +1031,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		font-size: 11px;
 		color: #ddd;
 	}
-		#footer #links {
+		#footer .links {
 			position: absolute;
 			margin-top: 10px;
 			right: 50px;
 		}
-			#footer #links * { margin-right: 10px; }
+			#footer .links * { margin-right: 10px; }
 
 /*-------------------------------------*/
 /* Responsive design
@@ -1062,7 +1062,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 			}
 
 
-				#container > #content > #title {
+				#container > #content > .title {
 					padding-left: 210px;
 				}
 
@@ -1086,7 +1086,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					#container[fixed=true] #menu[open] ul { display: block; }
 
 
-					#container[fixed=true] #menu #title { text-align: left; }
+					#container[fixed=true] #menu .title { text-align: left; }
 
 					#container[fixed=true] #menu #toggle { opacity: 1; }
 
@@ -1108,7 +1108,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					padding-left: 10px;
 				}
 
-					.item #title {
+					.item .title {
 						padding-right: 0;
 					}
 
@@ -1186,13 +1186,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				margin-left: 30px;
 			}
 
-			.item .badge #caption:after {
+			.item .badge .caption:after {
 				left: 20px;
 				border: solid 10px transparent;
 				border-left-color: #111;
 			}
 
-			.item .badge #caption {
+			.item .badge .caption {
 				opacity: 1;
 				-webkit-transform: rotate(-25deg);
 				   -moz-transform: rotate(-25deg);
@@ -1201,12 +1201,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 				        transform: rotate(-25deg);
 			}
 
-			.item #links {
+			.item .links {
 				width: auto;
 				max-width: 100%;
 				margin-right: 0px;
 			}
-				.item #links .link * { opacity: 1; }
+				.item .links .link * { opacity: 1; }
 						
 						.item .link {
 							color: #fff;
@@ -1225,7 +1225,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 								border-right: solid 15px #00A9BC;
 							}
 
-						.item[class*=blue] .link #title {
+						.item[class*=blue] .link .title {
 							background-color: #00A9BC;
 						}
 
@@ -1237,7 +1237,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 								border-right: solid 15px #D94B32;
 							}
 
-						.item[class*=red] .link #title {
+						.item[class*=red] .link .title {
 							background-color: #D94B32;
 						}
 
@@ -1250,7 +1250,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 								border-right: solid 15px #f0da4f;
 							}
 
-						.item[class*=yellow] .link #title {
+						.item[class*=yellow] .link .title {
 							background-color: #f0da4f;
 						}
 
@@ -1268,7 +1268,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 					width: auto;
 				}
 
-				.item #title {
+				.item .title {
 					padding: 10px;
 				}
 
@@ -1294,11 +1294,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		#container {
 			margin-right: 0;
 		}
-		#container > #content > #title {
+		#container > #content > .title {
 			padding-top: 50px;
 			padding-left: 0px;
 		}
-			#container[fixed] > #content > #title {
+			#container[fixed] > #content > .title {
 				padding-top: 0;
 			}
 
@@ -1317,12 +1317,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 
 		#footer { height: 250px; }
-			#footer #links {
+			#footer .links {
 				position: absolute;
 				right: initial !important;
 			}
 
-				#footer #links * {
+				#footer .links * {
 					display: block;
 					margin-top: 10px;
 				}
@@ -1350,7 +1350,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 		.item #badges {	height: 300px; }
 
-		.item .link #compatible #caption { display: none; }
+		.item .link #compatible .caption { display: none; }
 	}
 
 	@media only screen and (max-width: 200px) {

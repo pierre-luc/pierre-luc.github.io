@@ -12,126 +12,126 @@
 		<script src="./js/global.js"></script>
 	</head>
 	<body>
-					<header id="header">
+		<header id="header">
 				
-		<a class="clear" href="./">		
-				<div id="title">
+			<a class="clear" href="./">		
+				<div class="title">
 					<span class="ink-green">Pierre-Luc BLOT</span>
 					<span class="ink-blue">Concepteur web</span>
 				</div>
 			</a>
-		</header><section id="container">
+		</header>
+		<section id="container">
 			<!-- Models -->
 			<article id="item-model" class="item green" style="display: none;">
 				<div id="second-col">
 					<div id="subtitle">{{subtitle}}</div>
 					<div id="text"></div>
 				</div>
-				<a href="{{href}}">
+				<a href="#">
 					<div id="bar"></div>
 			    </a>
 					<div id="first-col">
 						<div id="{{id}}" style="visibility: hidden;"></div>
-						<div id="title">{{title}}</div>
+						<div class="title">{{title}}</div>
 					</div>
-
 			</article>
 
 			<article id="link-model" class="link" style="display: none;">
-		 		<div id="title">{{title}}</div>
+		 		<div class="title">{{title}}</div>
 		 		<div id="description">{{description}}</div>
-		 		<a id="button" href="{{href}}" target="_blank">Consulter</a>
+		 		<a id="button" href="#" target="_blank">Consulter</a>
 		 		<div id="compatible">
-		 			<div id="caption">Testé sur</div>
+		 			<div class="caption">Testé sur</div>
 		 			<ul class="navigator"></ul>
 		 		</div>
 		 	</article>
 
 		 	<div id="badge-model" style="display: none;">
-		 		<a href="{{href}}" class="clear" target="_blank">
+		 		<a href="#" class="clear" target="_blank">
 				 	<article id="{{name}}" class="badge">
-				 		<div id="caption">{{caption}}</div>
+				 		<div class="caption">{{caption}}</div>
 				 	</article>
 			    </a>
 		 	</div>
 			<!-- /Models -->
 
 			<article class="item"
-					 color="green"
+					 data-color="green"
 					 title="à propos"
 					 id="about"
-					 subtitle="concepteur / développeur web">
+					 data-subtitle="concepteur / développeur web">
 
 					 <p> Bienvenue sur mon site officiel. Je m'appelle Pierre-Luc BLOT, je suis étudiant en informatique. Je crée des sites web à la demande ou pour le plaisir. 
 					 	Vous y trouverez mon portfolio ainsi que des plugins pratique pour vos sites web.</p>
 			</article>
 			
 			<article class="item"
-					 color="orange"
+					 data-color="orange"
 					 title="compétences"
 					 id="competences"
-					 subtitle="technologies maitrisées">
+					 data-subtitle="technologies maitrisées">
 					 <section id="badges">
 					 	<article id="html"></article>
 					 	<article id="css"></article>
-					 	<article id="js" caption="javascript"></article>
-					 	<article id="jquery" href="http://jquery.com/"</article>
+					 	<article id="js" data-caption="javascript"></article>
+					 	<article id="jquery" data-href="http://jquery.com/"></article>
 					 	<article id="php"></article>
-					 	<article id="nodejs" href="http://nodejs.org/" caption="node.js"></article>
+					 	<article id="nodejs" data-href="http://nodejs.org/" data-caption="node.js"></article>
 					 </section>
 			</article>
 
 			<article class="item"
-					 color="blue"
+					 data-color="blue"
 					 title="portfolio"
 					 id="portfolio"
-					 subtitle="mes réalisations">
+					 data-subtitle="mes réalisations">
 
 
-					 <section id="links">
+					 <section class="links">
 					 	
 						<article title="cellsGame"
-					 		     href="./cellsGame"
-					 		     browsers="chrome">
+					 		     data-href="./cellsGame"
+					 		     data-browsers="chrome">
 					 		Jeu en construction...
 					 		
 					 	</article>
 
 					 	<article title="noecinema [demo]"
-					 		     href="http://extra.fetuceouille.com/noe/"
-					 		     browsers="chrome,firefox,ie,safari,opera">
+					 		     data-href="http://extra.fetuceouille.com/noe/"
+					 		     data-browsers="chrome,firefox,ie,safari,opera">
 					 		Refonte de l'affichage des horaires sur la page principale pour le site web <a href="//noecinema.com" target="_blank">noecinema.com</a>.
 					 		Il s'agit d'une page de démonstration car à l'heure actuelle le site ne dispose pas des améliorations que je propose ici. Réalisé en juin 2013.
 					 		
 					 	</article>
 
 					 	<article title="raphaelbellamy.com"
-					 			 href="http://raphaelbellamy.com/"
-					 			 browsers="chrome,firefox,ie,safari,opera">
+					 			 data-href="http://raphaelbellamy.com/"
+					 			 data-browsers="chrome,firefox,ie,safari,opera">
 				 			Site web pour mon ami compositeur.
 				 		</article>
 
 					 	<article title="vikibus yvetot"
-					 		 href="http://vikibus.fetuceouille.com/"
-					 		 browsers="chrome,firefox">
+					 		 data-href="http://vikibus.fetuceouille.com/"
+					 		 data-browsers="chrome,firefox">
 					 		Afin de consulter plus facilement les horaires du bus de ma ville j'ai réalisé une application en ligne. Réalisé en février 2012 et mis à jour fin 2012.
 					 	</article>
 
 					 	<article title="skatepark yvetot"
-					 		 href="http://skatepark.yvetot.fetuceouille.com/"
-					 		 browsers="chrome,firefox">
+					 		 data-href="http://skatepark.yvetot.fetuceouille.com/"
+					 		 data-browsers="chrome,firefox">
 				 			Site officiel du skatepark d'yvetot. Réalisé fin été 2012.
 					 	</article>
 
 						<article title="tours de magie fétuçeouille"
-					 		 href="http://magic.fetuceouille.com/"
-					 		 browsers="chrome,firefox">
+					 		 data-href="http://magic.fetuceouille.com/"
+					 		 data-browsers="chrome,firefox">
 					 		Quelques tours de magie fétuçeouille en ligne.
 					 	</article>
 
 					 	<article title="fétuçeouille"
-					 		 href="http://fetuceouille.com/"
-					 		 browsers="chrome,firefox">
+					 		 data-href="http://fetuceouille.com/"
+					 		 data-browsers="chrome,firefox">
 					 		Fétuçeouille, un projet que j'affectionne beaucoup, toujours en traveaux hélas... Il s'agit d'une de mes premières réalisations web datant du tout début de l'été 2012.
 					 	</article>
 
@@ -140,15 +140,15 @@
 
 
 			<article class="item"
-					 color="red"
+					 data-color="red"
 					 title="plugins"
 					 id="plugins"
-					 subtitle="conception de plugins">
+					 data-subtitle="conception de plugins">
 
-					 <section id="links">
+					 <section class="links">
 						<article title="alpha editor"
-					 		 href="http://alpha.fetuceouille.com/WYSIWYG/"
-					 		 browsers="chrome,firefox,opera,safari,ie">
+					 		 data-href="http://alpha.fetuceouille.com/WYSIWYG/"
+					 		 data-browsers="chrome,firefox,opera,safari,ie">
 					 		 Alpha editor est un éditeur WYSIWYG en ligne il permet l'enregistrement du texte via AJAX.
 					 	</article>
 
@@ -156,92 +156,88 @@
 			</article>
 
 			<article class="item"
-					 color="yellow"
+					 data-color="yellow"
 					 title="galeries"
 					 id="galleries"
-					 subtitle="images">
+					 data-subtitle="images">
 
-					 <section id="links">
+					 <section class="links">
 						<article title="photoshop"
-							 type="gallery"
-					 		 href="">
+							 data-type="gallery"
+					 		 data-href="#galleries">
 					 		 Je vous présente ici mes quelques réalisations sur photoshop.<br>
-								<ul id="gallery">
-							 		  	<li><a href="img/gallery/photoshop/img1.jpg" target="_blank"><img src="img/gallery/photoshop/img1.jpg" /></a></li>
-									    <li><a href="img/gallery/photoshop/img2.jpg" target="_blank"><img src="img/gallery/photoshop/img2.jpg" /></a></li>
-									    <li><a href="img/gallery/photoshop/img3.jpg" target="_blank"><img src="img/gallery/photoshop/img3.jpg" /></a></li> 
+								<ul class="gallery">
+							 		  	<li><a href="img/gallery/photoshop/img1.jpg" target="_blank"><img src="img/gallery/photoshop/img1.jpg" alt="" /></a></li>
+									    <li><a href="img/gallery/photoshop/img2.jpg" target="_blank"><img src="img/gallery/photoshop/img2.jpg" alt="" /></a></li>
+									    <li><a href="img/gallery/photoshop/img3.jpg" target="_blank"><img src="img/gallery/photoshop/img3.jpg" alt="" /></a></li> 
 								</ul>
 					 	</article>
 
 					 	<article title="paint"
-							 type="gallery"
-					 		 href="">
+							 data-type="gallery"
+					 		 data-href="#galleries">
 					 		 Je vous présente ici mes quelques réalisations paint.<br>
-								<ul id="gallery">
-						 		  	<li><a href="img/gallery/paint/1.jpg" target="_blank"><img src="img/gallery/paint/1.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/paint/4.jpg" target="_blank"><img src="img/gallery/paint/4.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/paint/2.jpg" target="_blank"><img src="img/gallery/paint/2.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/paint/3.jpg" target="_blank"><img src="img/gallery/paint/3.jpg" /></a></li>
+								<ul class="gallery">
+						 		  	<li><a href="img/gallery/paint/1.jpg" target="_blank"><img src="img/gallery/paint/1.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/paint/4.jpg" target="_blank"><img src="img/gallery/paint/4.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/paint/2.jpg" target="_blank"><img src="img/gallery/paint/2.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/paint/3.jpg" target="_blank"><img src="img/gallery/paint/3.jpg" alt="" /></a></li>
 								</ul>
 					 	</article>
 
 					 	<article title="dessins"
-							 type="gallery"
-					 		 href="">
+							 data-type="gallery"
+					 		 data-href="#galleries">
 					 		 Voici quelques dessins réalisés au crayon.<br>
-								<ul id="gallery">
-						 		  	<li><a href="img/gallery/dessins/1.jpg" target="_blank"><img src="img/gallery/dessins/1.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/dessins/3.jpg" target="_blank"><img src="img/gallery/dessins/3.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/dessins/2.jpg" target="_blank"><img src="img/gallery/dessins/2.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/dessins/4.jpg" target="_blank"><img src="img/gallery/dessins/4.jpg" /></a></li>
+								<ul class="gallery">
+						 		  	<li><a href="img/gallery/dessins/1.jpg" target="_blank"><img src="img/gallery/dessins/1.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/dessins/3.jpg" target="_blank"><img src="img/gallery/dessins/3.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/dessins/2.jpg" target="_blank"><img src="img/gallery/dessins/2.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/dessins/4.jpg" target="_blank"><img src="img/gallery/dessins/4.jpg" alt="" /></a></li>
 								</ul>
 					 	</article>
 
 					 	<article title="dessins à la main gauche"
-							 type="gallery"
-					 		 href="">
+							 data-type="gallery"
+					 		 data-href="#galleries">
 					 		 Voici quelques dessins réalisés au crayon à la main gauche.<br>
-								<ul id="gallery">
-						 		  	<li><a href="img/gallery/gdessins/1.jpg" target="_blank"><img src="img/gallery/gdessins/1.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/gdessins/3.jpg" target="_blank"><img src="img/gallery/gdessins/3.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/gdessins/2.jpg" target="_blank"><img src="img/gallery/gdessins/2.jpg" /></a></li>
+								<ul class="gallery">
+						 		  	<li><a href="img/gallery/gdessins/1.jpg" target="_blank"><img src="img/gallery/gdessins/1.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/gdessins/3.jpg" target="_blank"><img src="img/gallery/gdessins/3.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/gdessins/2.jpg" target="_blank"><img src="img/gallery/gdessins/2.jpg" alt="" /></a></li>
 								</ul>
 					 	</article>
 
 					 	<article title="colorisation"
-							 type="gallery"
-					 		 href="">
+							 data-type="gallery"
+					 		 data-href="#galleries">
 					 		 En utilisant gimp j'ai colorisé la libellule que j'avais dessiné sur paint. Et en utilisant photoshop j'ai colorisé la photo noir et blanc (sans modèle).<br>
-								<ul id="gallery">
-						 		  	<li><a href="img/gallery/coloration/1.jpg" target="_blank"><img src="img/gallery/coloration/1.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/coloration/2.jpg" target="_blank"><img src="img/gallery/coloration/2.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/coloration/3.jpg" target="_blank"><img src="img/gallery/coloration/3.jpg" /></a></li>
-						 		  	<li><a href="img/gallery/coloration/4.jpg" target="_blank"><img src="img/gallery/coloration/4.jpg" /></a></li>
+								<ul class="gallery">
+						 		  	<li><a href="img/gallery/coloration/1.jpg" target="_blank"><img src="img/gallery/coloration/1.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/coloration/2.jpg" target="_blank"><img src="img/gallery/coloration/2.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/coloration/3.jpg" target="_blank"><img src="img/gallery/coloration/3.jpg" alt="" /></a></li>
+						 		  	<li><a href="img/gallery/coloration/4.jpg" target="_blank"><img src="img/gallery/coloration/4.jpg" alt="" /></a></li>
 								</ul>
 					 	</article>
-						
 					 </section>
-
-
-
-
-
 			</article>
 
 			<article class="item"
-					 color="violet"
+					 data-color="violet"
 					 title="contact"
 					 id="contact"
-					 subtitle="mes coordonnées">
+					 data-subtitle="mes coordonnées">
 
 					 <section class="social">
 					 	<div id="website"><a href="http://j.mp/pierreluc" target="_blank">j.mp/pierreluc</a></div>
 					 	<div id="mail"><a href="mailto:pierreluc.blot@gmail.com">pierreluc.blot@gmail.com</a></div>
 					 </section>
 			</article>
-		</section>		<footer id="footer">
+		</section>
+		<footer id="footer">
 			<div>©pierre-Luc BLOT 2014 <h6>site en construction</h6></div>
-			<div id="links">
+
+			<div class="links">
 				<a href="#about">à propos</a>
 				<a href="#competences">compétences</a>
 				<a href="#portfolio">portfolio</a>
@@ -249,6 +245,10 @@
 				<a href="#galleries">galleries</a>
 				<a href="#contact">contact</a>
 			</div>
+			<br>
+			<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fpierre-luc.github.io" target="_blank">
+				<img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="82" height="32" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+			</a>
 		</footer>		
 	</body>	
 </html>
