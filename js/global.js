@@ -135,7 +135,7 @@ $(document).ready(function(){
 		});
 
 		var badgeModel= $('#badge-model');
-		var badge = $('#badges article').each(function(){
+		var badge = $('#badges').find('article').each(function(){
 			var $el = $(this);
 			if ( this.id !== 'badge-model' ) {
 					$el.remove();
