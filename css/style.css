@@ -643,7 +643,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 								-webkit-box-shadow: 0px 0px 20px 0px #111;
 								-o-box-shadow: 0px 0px 20px 0px #111;
 								box-shadow: 0px 0px 20px 0px #111;
-								filter:progid:DXImageTransform.Microsoft.Shadow(color=#111, Direction=NaN, Strength=20);
 						}
 							.item .badge .caption:after {
 								position: absolute;
