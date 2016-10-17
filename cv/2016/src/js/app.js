@@ -76,7 +76,7 @@ angular
             job: "Développeur full stack",
             phone: "01 23 45 67 89",
             email: "pierreluc.blot@gmail.com",
-            home: "144 rue des pétales, 75000 Rouen",
+            home: "144 rue des pétales, 75000 Paris",
             birthday: "23/10/1990",
             github: "pierre-luc",
 
