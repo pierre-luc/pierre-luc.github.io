@@ -75,9 +75,9 @@ angular
             firstname: "Pierre-Luc",
             name: "BLOT",
             job: "Développeur full stack",
-            phone: "06 73 61 93 84",
+            phone: "01 23 45 67 89",
             email: "pierreluc.blot@gmail.com",
-            home: "32 BD Ferdinand de Lesseps, 76000 Rouen",
+            home: "144 rue des pétales, 75000 Paris",
             birthday: "23/10/1990",
             github: "pierre-luc",
 
@@ -190,124 +190,5 @@ angular
                 }
             ]
         }
-
-        $scope.dataEN = {
-            firstname: "Pierre-Luc",
-            name: "BLOT",
-            job: "full stack developper",
-            phone: "06 73 61 93 84",
-            email: "pierreluc.blot@gmail.com",
-            home: "32 BD Ferdinand de Lesseps, 76000 Rouen",
-            birthday: "23/10/1990",
-            github: "pierre-luc",
-
-            experiences: [
-                {
-                    date: "July 2016 - now",
-                    title: "Platform of websites builder",
-                    description: "Creation of a platform of websites builder & deployment",
-                    techs: ["Symfony 2.8", "NodeJS", "AngularJS"]
-                }, {
-                    date: "May 2015 - now",
-                    title: "Call Center Platform",
-                    description: "Creation of a call center platform in freelance",
-                    techs: ["Symfony 2.8", "NodeJS", "AngularJS", "Asterisk", "Redis"]
-                }, {
-                    date: "November 2015",
-                    title: "Payment System",
-                    description: "Integration of Payment System into existant site",
-                    techs: ["Paypal Express Checkout", "Paysafecard", "Payplug"]
-                }, {
-                    date: "October 2015",
-                    title: "fashion website",
-                    description: "Calloborate on the developpement of a website for affiliate designers Jean-Paul Gaultier",
-                    techs: ["jQuery", "Wordpress"],
-                    url: "http://own.be"
-                }, {
-                    date: "April 2014",
-                    title: "Creation of a website to film music composer",
-                    description: "Création du site offciel de Raphaël Bellamy, compositeur de musique de film et à l’image",
-                    techs: ["jQuery", "Wordpress"],
-                    url: "http://raphaelbellamy.com"
-                }
-            ],
-            education: [
-                {
-                    date: "2016/2017",
-                    title: "Master 2 GIL UFR Sciences et techniques, Saint-Etienne du Rouvray"
-                }, {
-                    date: "2014/2015",
-                    title: "Master 1 GIL UFR Sciences et techniques, Saint-Etienne du Rouvray"
-                }, {
-                    date: "2013/2014",
-                    title: "Bachelor computing science UFR Sciences et techniques, Saint-Etienne du Rouvray"
-                }
-            ],
-
-            skills: [
-                {
-                    title: "IT Sciences",
-                    skills: [
-                        {
-                            title: "Progamming languages",
-                            level: 7,
-                            opts: ["php", "Java", "C", "javascript", "html", "css", "sass"]
-                        }, {
-                            title: "Web servers",
-                            level: 6,
-                            opts: ["Apache", "NGinx", "NodeJS"]
-                        }, {
-                            title: "Frameworks",
-                            level: 7,
-                            opts: ["Symfony", "AngularJS", "Spring", "Bootstrap", "Foundation"]
-                        }, {
-                            title: "Databases",
-                            level: 6,
-                            opts: ["MySQL", "Redis", "Postgres"]
-                        }, {
-                            title: "Analyse",
-                            level: 5,
-                            opts: ["UML"]
-                        }, {
-                            title: "Learning new languages",
-                            level: 7
-                        }, {
-                            title: "Tools / Infography / IDE",
-                            level: 8,
-                            opts: ["gulp", "photoshop", "gimp", "inkscape", "illustrator", 'jetbrain', 'atom' ]
-                        }
-                    ]
-                }, {
-                    title: "Linguistic",
-                    skills: [
-                        {
-                            title: "technical english (read)",
-                            level: 7
-                        }, {
-                            title: "technical english (speak)",
-                            level: 5
-                        }
-                    ]
-                }
-            ],
-
-            hobbies: [
-                {
-                    name: "Cinema",
-                    icon: "fa fa-film"
-                }, {
-                    name: "Technologies",
-                    icon: "fa fa-desktop"
-                }, {
-                    name: "web development",
-                    icon: "fa fa-mobile"
-                }, {
-                    name: "Music",
-                    icon: "fa fa-music"
-                }, {
-                    name: "Learn",
-                    icon: "fa fa-book"
-                }
-            ]
-        }
     });
+
