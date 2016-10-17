@@ -13,21 +13,30 @@ $urlColor: $blue;
   font-family: "Segoe UI Light";
   src: url(SEGOEUIL.ttf) format("truetype");
 }
+$width: $width;
+$height: $height;
+$margin: 40px;
 
 body {
-  $width: $width;
-  $height: $height;
-  $margin: 40px;
+
 
   width: $width - 2 * $margin;
-  height: $height - 2 * $margin;
+  height: $height - 2 * $margin + 40px;
   padding: $margin;
   border: solid 1px lighten($gray, 20%);
-  margin: 0;
+  margin: 20px auto;
   font-family: 'Segoe UI Light';
 
   display: flex;
   flex-direction: column;
+}
+
+@media print {
+  body {
+    height: $height - 2 * $margin;
+    margin: 0;
+    border: none;
+  }
 }
 
 .header {
@@ -184,8 +193,24 @@ body {
 
 .part {
   margin-bottom: 20px;
+  animation: part 0.5s ease forwards;
+
+  @keyframes part {
+    0% {
+      opacity: 0;
+      transform: translate(0, -50px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+
   &:last-child {
     margin-bottom: 0;
+    margin-top: 50px;
   }
   .part-icon {
     color: $foreColor;
@@ -218,6 +243,26 @@ body {
     }
     .skills-group-skills {
       .skill {
+        animation: skill 0.5s ease forwards;
+        opacity: 0;
+        transform: translate(10px, 0);
+        @keyframes skill {
+          0% {
+            opacity: 0;
+            transform: translate(10px, 0);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translate(0, 0);
+          }
+        }
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation-delay: 0.1s * $i;
+          }
+        }
+
         display: flex;
         font-size: 14px;
         justify-content: flex-end;
@@ -280,6 +325,27 @@ body {
   padding: 20px;
 
   .hobby {
+    animation: hobby 0.5s ease forwards;
+    opacity: 0;
+    transform: translate(0, 50px);
+    @keyframes hobby {
+      0% {
+        opacity: 0;
+        transform: translate(0, 50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.1s * $i;
+      }
+    }
+
+
     position: relative;
     margin: 0 7px;
     &:nth-child(even){
@@ -323,7 +389,40 @@ body {
 ul.items {
   padding: 0;
   list-style: none;
+  animation: items 0.5s ease forwards;
+  @keyframes items {
+    0% {
+      opacity: 0;
+      transform: translate(-50px, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
   li.item {
+    animation: item 0.5s ease forwards;
+    opacity: 0;
+    transform: translate(-10px, 0);
+    @keyframes item {
+      0% {
+        opacity: 0;
+        transform: translate(-10px, 0);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: 0.1s * $i;
+      }
+    }
+
     $s: 10px;
     position: relative;
     border-left: solid 2px $foreColor;
