@@ -20,43 +20,56 @@ angular
             }
         }
     })
-    .controller('resume', function($scope){
-        $scope.techIcon = function(name){
-            var techs = {
-                "php": "devicon-php-plain",
-                "java": "devicon-java-plain",
-                "javascript": "devicon-javascript-plain",
-                "symfony": "devicon-symfony-original",
-                "symfony 2.8": "devicon-symfony-original",
-                "redis": "devicon-redis-plain",
-                "mysql": "devicon-mysql-plain",
-                "postgres": "devicon-postgresql-plain",
-                "html": "devicon-html5-plain",
-                "css": "devicon-css3-plain",
-                "sass": "devicon-sass-original",
-                "bootstrap": "devicon-bootstrap-plain",
-                "apache": "devicon-apache-plain",
-                "nodejs": "devicon-nodejs-plain",
-                "nginx": "devicon-nginx-original",
-                "angularjs": "devicon-angularjs-plain",
-                "illustrator": "devicon-illustrator-plain",
-                "gulp": "devicon-gulp-plain",
-                "gimp": "devicon-gimp-plain",
-                "inkscape": "devicon-inkscape-plain",
-                "photoshop": "devicon-photoshop-plain",
-                "jetbrain": "devicon-jetbrains-plain",
-                "atom": "devicon-atom-original",
-                "foundation": "devicon-foundation-plain",
-                "asterisk": "fa fa-asterisk",
-                "jquery": "devicon-jquery-plain",
-                "wordpress": "devicon-wordpress-plain"
-            };
-            
-            return {
-                name: name,
-                icon: techs[name.toLowerCase()] ? techs[name.toLowerCase()] : null 
+    .directive("techIcon", function(){
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                name: '='
+            },
+            template: '<i class="{{icon}}" aria-hidden="true"></i>',
+            controller: function($scope){
+
+                $scope.icon = techIcon($scope.name);
+
+                function techIcon(name){
+                    var techs = {
+                        "php": "devicon-php-plain",
+                        "java": "devicon-java-plain",
+                        "javascript": "devicon-javascript-plain",
+                        "symfony": "devicon-symfony-original",
+                        "symfony 2.8": "devicon-symfony-original",
+                        "redis": "devicon-redis-plain",
+                        "mysql": "devicon-mysql-plain",
+                        "postgres": "devicon-postgresql-plain",
+                        "html": "devicon-html5-plain",
+                        "css": "devicon-css3-plain",
+                        "sass": "devicon-sass-original",
+                        "bootstrap": "devicon-bootstrap-plain",
+                        "apache": "devicon-apache-plain",
+                        "nodejs": "devicon-nodejs-plain",
+                        "nginx": "devicon-nginx-original",
+                        "angularjs": "devicon-angularjs-plain",
+                        "illustrator": "devicon-illustrator-plain",
+                        "gulp": "devicon-gulp-plain",
+                        "gimp": "devicon-gimp-plain",
+                        "inkscape": "devicon-inkscape-plain",
+                        "photoshop": "devicon-photoshop-plain",
+                        "jetbrain": "devicon-jetbrains-plain",
+                        "atom": "devicon-atom-original",
+                        "foundation": "devicon-foundation-plain",
+                        "asterisk": "fa fa-asterisk",
+                        "jquery": "devicon-jquery-plain",
+                        "wordpress": "devicon-wordpress-plain"
+                    };
+
+                    return techs[name.toLowerCase()] ? techs[name.toLowerCase()] : null
+
+                }
             }
         }
+    })
+    .controller('resume', function($scope){
         $scope.data = {
             firstname: "Pierre-Luc",
             name: "BLOT",

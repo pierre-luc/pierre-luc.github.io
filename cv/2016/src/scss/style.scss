@@ -22,7 +22,7 @@ body {
   width: $width - 2 * $margin;
   height: $height - 2 * $margin;
   padding: $margin;
-  //border: solid 1px lighten($gray, 20%);
+  border: solid 1px lighten($gray, 20%);
   margin: 0;
   font-family: 'Segoe UI Light';
 

@@ -73,8 +73,7 @@
 							<div class="item-techs">
 								<div ng-repeat="tech in exp.techs">
 									<div class="sep">
-										<i ng-if="techIcon(tech)" class="{{techIcon(tech).icon}}" aria-hidden="true"></i>
-
+										<tech-icon name="tech"></tech-icon>
 									</div>
 									<span class="text">
 										{{tech}}
@@ -124,7 +123,7 @@
 										<div class="skill-title">{{skill.title}}</div>
 										<div ng-if="skill.opts" class="skill-opts" ng-class="{one: skill.opts.length == 1}">
 											<div ng-repeat="opt in skill.opts">
-												<i ng-if="techIcon(opt)" class="{{techIcon(opt).icon}}" aria-hidden="true"></i>
+												<tech-icon name="opt"></tech-icon>
 												{{opt}}
 											</div>
 										</div>
