@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="resume">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pierre-Luc BLOT | CV</title>
+		<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.3.0/font-mfizz.min.css">
+		<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body ng-controller="resume" ng-cloak>
+		<div class="header">
+			<div class="identity">
+				<div class="row">
+					<div class="firstname">{{data.firstname}}</div>
+					<div class="name">{{data.name}}</div>
+				</div>
+				<div class="row">
+					<div class="job">{{data.job}}</div>
+				</div>
+			</div>
+
+			<div class="contacts">
+				<div class="home">
+					{{data.home}}
+					<div class="icon">
+						<i class="fa fa-home" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="phone">
+					{{data.phone}}
+					<div class="icon">
+						<i class="fa fa-mobile" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="email">
+					{{data.email}}
+					<div class="icon">
+						<i class="fa fa-envelope-o" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="birthday">
+					{{data.birthday}}
+					<div class="icon">
+						<i class="fa fa-child" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="github">
+					{{data.github}}
+					<div class="icon">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="left">
+
+				<!-- experiences -->
+				<div class="part">
+					<div class="part-icon">
+						<i class="fa fa-flask" aria-hidden="true"></i>
+					</div>
+					<div class="part-title">Expériences professionnelles</div>
+
+					<ul class="items">
+						<li class="item" ng-repeat="exp in data.experiences">
+							<div class="item-date">{{exp.date}}</div>
+							<div class="item-title">{{exp.title}}</div>
+							<div class="item-text">{{exp.description}}</div>
+							<div class="item-techs">
+								<div ng-repeat="tech in exp.techs">
+									<div class="sep">
+										<i ng-if="techIcon(tech)" class="{{techIcon(tech).icon}}" aria-hidden="true"></i>
+
+									</div>
+									<span class="text">
+										{{tech}}
+									</span>
+								</div>
+							</div>
+							<a ng-if="exp.url" class="item-url" href="{{exp.url}}" target="_blank">
+								<i class="fa fa-external-link" aria-hidden="true"></i>
+								{{exp.url}}
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--/experiences -->
+
+				<!-- education -->
+				<div class="part">
+					<div class="part-icon">
+						<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+					</div>
+					<div class="part-title">Formations</div>
+
+					<ul class="items">
+						<li class="item" ng-repeat="e in data.education">
+							<div class="item-title">{{e.date}}</div>
+							<div class="item-text">{{e.title}}</div>
+						</li>
+					</ul>
+				</div>
+				<!-- /education -->
+			</div>
+			<div class="right">
+				<!-- skills -->
+				<div class="part">
+					<div class="part-icon">
+						<i class="fa fa-cogs" aria-hidden="true"></i>
+					</div>
+					<div class="part-title">
+						Compétences
+					</div>
+					<div class="skills">
+						<div class="skills-group" ng-repeat="skillsGroup in data.skills">
+							<div class="skills-group-title">{{skillsGroup.title}}</div>
+							<div class="skills-group-skills">
+								<div class="skill" ng-repeat="skill in skillsGroup.skills">
+									<div class="info">
+										<div class="skill-title">{{skill.title}}</div>
+										<div ng-if="skill.opts" class="skill-opts" ng-class="{one: skill.opts.length == 1}">
+											<div ng-repeat="opt in skill.opts">
+												<i ng-if="techIcon(opt)" class="{{techIcon(opt).icon}}" aria-hidden="true"></i>
+												{{opt}}
+											</div>
+										</div>
+									</div>
+									<level value="skill.level" max="10"></level>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /skills -->
+
+				<!-- recreation -->
+				<div class="part">
+					<div class="part-icon">
+						<i class="fa fa-heart-o" aria-hidden="true"></i>
+					</div>
+					<div class="part-title">
+						Loisirs
+					</div>
+
+					<div class="recreation">
+						<div class="hobby" ng-repeat="hobby in data.hobbies">
+							<div class="circle">
+								<i class="{{hobby.icon}}" aria-hidden="true"></i>
+							</div>
+							<div class="line"></div>
+							<div class="name">{{hobby.name}}</div>
+						</div>
+					</div>
+				</div>
+				<!-- /recreation -->
+			</div>
+		</div>
+		<script src="node_modules/angular/angular.min.js"></script>
+		<script src="dist/js/app.js"></script>
+	</body>
+</html>
